@@ -6,12 +6,10 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2275" />
         <entry key="app/src/main/res/drawable/home_icon.xml" value="0.2275" />
         <entry key="app/src/main/res/drawable/pink_background.xml" value="0.2275" />
-        <entry key="app/src/main/res/drawable/pink_rounded_corner.xml" value="0.2275" />
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.13281402587890626" />
-        <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="0.26982333418251814" />
-        <entry key="app/src/main/res/layout/activity_get_user_preferences.xml" value="0.4371404012044272" />
-        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.4231216430664063" />
-        <entry key="app/src/main/res/layout/activity_new_user_landing.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.278857421875" />
+        <entry key="app/src/main/res/layout/activity_new_user_landing.xml" value="0.21861724853515627" />
       </map>
     </option>
   </component>
