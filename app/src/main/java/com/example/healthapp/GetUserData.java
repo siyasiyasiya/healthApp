@@ -22,11 +22,11 @@ public class GetUserData extends AppCompatActivity {
     int inches =0;
     int weight = 0;
 
-    TextView nameErr, genderErr, dateErr, heightErr, weightErr;
+    private TextView nameErr, genderErr, dateErr, heightErr, weightErr;
 
-    EditText nameTxt , monthTxt,dayTxt,yearTtx,feetTxt ,inchTxt,weightTxt;
+    private EditText nameTxt , monthTxt,dayTxt,yearTtx,feetTxt ,inchTxt,weightTxt;
 
-    Button maleBtn, femaleBtn, notSayBtn;
+    private Button maleBtn, femaleBtn, notSayBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,12 +139,12 @@ public class GetUserData extends AppCompatActivity {
             works = false;
             heightErr.setText("Please enter a valid height");
         }else{
-            dateErr.setText("");
+            heightErr.setText("");
             if(inches < 0 || inches > 12){
                 works = false;
                 heightErr.setText("Please enter a valid height");
             }else{
-                dateErr.setText("");
+                heightErr.setText("");
             }
         }
 
