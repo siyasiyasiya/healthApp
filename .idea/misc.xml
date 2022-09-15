@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="0.4306708854414212" />
-        <entry key="app/src/main/res/layout/activity_get_user_preferences.xml" value="0.40546417236328125" />
+        <entry key="app/src/main/res/drawable/gender_pressed.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="0.45407257080078134" />
+        <entry key="app/src/main/res/layout/activity_get_user_preferences.xml" value="0.16562805175781248" />
         <entry key="app/src/main/res/layout/activity_new_user_landing.xml" value="0.31989593505859376" />
       </map>
     </option>

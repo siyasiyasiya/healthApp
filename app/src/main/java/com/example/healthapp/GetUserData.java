@@ -42,7 +42,7 @@ public class GetUserData extends AppCompatActivity {
 
     public void femaleBtnClick(View view){
         gender = "female";
-//        femaleBtn.setBackgroundColor(R.color.purple_200);
+//        femaleBtn.setBackgroundColor(Color.parseColor("#F9245B"));
 //        maleBtn.setBackgroundColor(Color.parseColor("#E3E3E3"));
 //        notSayBtn.setBackgroundColor(Color.parseColor("#E3E3E3"));
     }
@@ -70,6 +70,7 @@ public class GetUserData extends AppCompatActivity {
          inchTxt = (EditText)findViewById(R.id.inchField);
          weightTxt = (EditText)findViewById(R.id.weightField);
 
+//         validations
         name = nameTxt.getText().toString();
         if (monthTxt.length()>0)
             month = Integer.parseInt(monthTxt.getText().toString());
@@ -95,6 +96,11 @@ public class GetUserData extends AppCompatActivity {
             weight = Integer.parseInt(weightTxt.getText().toString());
         else
             dateErr.setText("Please enter a weight");
+
+        if(gender == "")
+            genderErr.setText("Please select a gender");
+        else
+            genderErr.setText("");
 
         boolean works = true;
         if (name.equals("")){
