@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class GetUserData extends AppCompatActivity {
 
     String name ="";
@@ -26,8 +28,6 @@ public class GetUserData extends AppCompatActivity {
 
     private EditText nameTxt , monthTxt,dayTxt,yearTtx,feetTxt ,inchTxt,weightTxt;
 
-    private Button maleBtn, femaleBtn, notSayBtn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,27 +38,40 @@ public class GetUserData extends AppCompatActivity {
         dateErr = findViewById(R.id.dateErr);
         heightErr = findViewById(R.id.heightErr);
         weightErr = findViewById(R.id.weightErr);
-    }
 
-    public void femaleBtnClick(View view){
-        gender = "female";
-//        femaleBtn.setBackgroundColor(Color.parseColor("#F9245B"));
-//        maleBtn.setBackgroundColor(Color.parseColor("#E3E3E3"));
-//        notSayBtn.setBackgroundColor(Color.parseColor("#E3E3E3"));
-    }
+        View femaleBtn = findViewById(R.id.femaleBtn);
+        View notSayBtn = findViewById(R.id.notSayBtn);
+        View maleBtn = findViewById(R.id.maleBtn);
 
-    public void maleBtnClick(View view){
-        gender = "male";
-//        femaleBtn.setBackgroundColor(Color.parseColor("#E3E3E3"));
-//        maleBtn.setBackgroundColor(Color.parseColor("#F9245B"));
-//        notSayBtn.setBackgroundColor(Color.parseColor("#E3E3E3"));
-    }
+        notSayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gender = "other";
+                v.setSelected(true);
+                femaleBtn.setSelected(false);
+                maleBtn.setSelected(false);
+            }
+        });
 
-    public void notSayClick(View view){
-        gender = "not say";
-//        femaleBtn.setBackgroundColor(Color.parseColor("#E3E3E3"));
-//        maleBtn.setBackgroundColor(Color.parseColor("#E3E3E3"));
-//        notSayBtn.setBackgroundColor(Color.parseColor("#F9245B"));
+        femaleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gender = "female";
+                v.setSelected(true);
+                notSayBtn.setSelected(false);
+                maleBtn.setSelected(false);
+            }
+        });
+
+        maleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gender = "male";
+                v.setSelected(true);
+                notSayBtn.setSelected(false);
+                femaleBtn.setSelected(false);
+            }
+        });
     }
 
     public void submitAboutYou(View view){
@@ -97,18 +110,20 @@ public class GetUserData extends AppCompatActivity {
         else
             dateErr.setText("Please enter a weight");
 
-        if(gender == "")
-            genderErr.setText("Please select a gender");
-        else
-            genderErr.setText("");
-
         boolean works = true;
+
         if (name.equals("")){
             works = false;
             nameErr.setText("Please enter a name");
         }else{
             nameErr.setText("");
         }
+
+        if(gender.equals("")) {
+            works = false;
+            genderErr.setText("Please select a gender");
+        } else
+            genderErr.setText("");
 
         if (month < 1 || month>12){
             works = false;

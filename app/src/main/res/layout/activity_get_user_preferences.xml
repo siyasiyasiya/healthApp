@@ -163,9 +163,9 @@
             android:layout_width="164dp"
             android:layout_height="54dp"
             android:layout_marginTop="180dp"
-            android:backgroundTint="#E3E3E3"
+            android:backgroundTint="@color/button_selection_background"
             android:text="Weightlifting"
-            android:textColor="#4E4E4E"
+            android:textColor="@color/botton_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.245"
@@ -178,9 +178,22 @@
             android:layout_height="54dp"
             android:layout_marginStart="36dp"
             android:layout_marginTop="180dp"
-            android:backgroundTint="#E3E3E3"
+            android:backgroundTint="@color/button_selection_background"
             android:text="Powerlifting"
-            android:textColor="#4E4E4E"
+            android:textColor="@color/botton_selection_text_color"
+            app:cornerRadius="50sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/cardioBtn"
+            android:layout_width="164dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="112dp"
+            android:backgroundTint="@color/button_selection_background"
+            android:text="Cardio"
+            android:textColor="@color/botton_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -191,11 +204,11 @@
             android:layout_height="54dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="180dp"
-            android:backgroundTint="#E3E3E3"
+            android:backgroundTint="@color/button_selection_background"
             android:text="Flexibility"
-            android:textColor="#4E4E4E"
+            android:textColor="@color/botton_selection_text_color"
             app:cornerRadius="50sp"
-            app:layout_constraintStart_toEndOf="@+id/cardioBtn"
+            app:layout_constraintStart_toEndOf="@+id/powerliftiingBtn"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -244,27 +257,14 @@
             app:layout_constraintVertical_bias="0.904" />
 
         <Button
-            android:id="@+id/cardioBtn"
-            android:layout_width="164dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="112dp"
-            android:backgroundTint="#E3E3E3"
-            android:text="Cardio"
-            android:textColor="#4E4E4E"
-            app:cornerRadius="50sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
             android:id="@+id/plyoBtn"
             android:layout_width="164dp"
             android:layout_height="54dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="112dp"
-            android:backgroundTint="#E3E3E3"
+            android:backgroundTint="@color/button_selection_background"
             android:text="Plyometrics"
-            android:textColor="#4E4E4E"
+            android:textColor="@color/botton_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintStart_toEndOf="@+id/cardioBtn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -274,9 +274,9 @@
             android:layout_width="164dp"
             android:layout_height="54dp"
             android:layout_marginTop="112dp"
-            android:backgroundTint="#E3E3E3"
+            android:backgroundTint="@color/button_selection_background"
             android:text="Strength"
-            android:textColor="#4E4E4E"
+            android:textColor="@color/botton_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.263"
@@ -352,14 +352,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.777">
-
-            <View
-                android:id="@+id/dragLegs"
-                android:layout_height="50dp"
-                android:layout_width="100dp"
-                android:background="@color/red_pink" />
-            </LinearLayout>
+            app:layout_constraintVertical_bias="0.777"/>
 
         <TextView
             android:id="@+id/goalErr"

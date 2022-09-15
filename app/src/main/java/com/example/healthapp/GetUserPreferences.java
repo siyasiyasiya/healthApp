@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class GetUserPreferences extends AppCompatActivity {
-    private Button strengthBtn, plyoBtn, cardioBtn, flexibilityBtn, powerliftingBtn, weightliftingBtn;
     private String fitnessGoal = "";
     private TextView goalErr;
 
@@ -18,27 +17,23 @@ public class GetUserPreferences extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_user_preferences);
 
-        strengthBtn = findViewById(R.id.strengthBtn);
-        plyoBtn = findViewById(R.id.plyoBtn);
-        cardioBtn = findViewById(R.id.cardioBtn);
-        flexibilityBtn = findViewById(R.id.flexibilityBtn);
-        powerliftingBtn = findViewById(R.id.powerliftiingBtn);
-        weightliftingBtn = findViewById(R.id.weightliftingBtn);
+        View strengthBtn = findViewById(R.id.strengthBtn);
+        View plyoBtn = findViewById(R.id.plyoBtn);
+        View cardioBtn = findViewById(R.id.cardioBtn);
+        View flexibilityBtn = findViewById(R.id.flexibilityBtn);
+        View powerliftingBtn = findViewById(R.id.powerliftiingBtn);
+        View weightliftingBtn = findViewById(R.id.weightliftingBtn);
         goalErr = findViewById(R.id.goalErr);
-
-        View dragLegs = findViewById(R.id.dragLegs);
-
-
-        dragLegs.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                return false;
-            }
-        });
 
         strengthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                strengthBtn.setSelected(true);
+                plyoBtn.setSelected(false);
+                cardioBtn.setSelected(false);
+                flexibilityBtn.setSelected(false);
+                powerliftingBtn.setSelected(false);
+                weightliftingBtn.setSelected(false);
                 fitnessGoal = "strength";
             }
         });
@@ -46,6 +41,12 @@ public class GetUserPreferences extends AppCompatActivity {
         plyoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                strengthBtn.setSelected(false);
+                plyoBtn.setSelected(true);
+                cardioBtn.setSelected(false);
+                flexibilityBtn.setSelected(false);
+                powerliftingBtn.setSelected(false);
+                weightliftingBtn.setSelected(false);
                 fitnessGoal = "plyometrics";
             }
         });
@@ -53,6 +54,12 @@ public class GetUserPreferences extends AppCompatActivity {
         cardioBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                strengthBtn.setSelected(false);
+                plyoBtn.setSelected(false);
+                cardioBtn.setSelected(true);
+                flexibilityBtn.setSelected(false);
+                powerliftingBtn.setSelected(false);
+                weightliftingBtn.setSelected(false);
                 fitnessGoal = "cardio";
             }
         });
@@ -60,6 +67,12 @@ public class GetUserPreferences extends AppCompatActivity {
         flexibilityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                strengthBtn.setSelected(false);
+                plyoBtn.setSelected(false);
+                cardioBtn.setSelected(false);
+                flexibilityBtn.setSelected(true);
+                powerliftingBtn.setSelected(false);
+                weightliftingBtn.setSelected(false);
                 fitnessGoal = "flexibility";
             }
         });
@@ -67,6 +80,12 @@ public class GetUserPreferences extends AppCompatActivity {
         powerliftingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                strengthBtn.setSelected(false);
+                plyoBtn.setSelected(false);
+                cardioBtn.setSelected(false);
+                flexibilityBtn.setSelected(false);
+                powerliftingBtn.setSelected(true);
+                weightliftingBtn.setSelected(false);
                 fitnessGoal = "powerlifting";
             }
         });
@@ -74,6 +93,12 @@ public class GetUserPreferences extends AppCompatActivity {
         weightliftingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                strengthBtn.setSelected(false);
+                plyoBtn.setSelected(false);
+                cardioBtn.setSelected(false);
+                flexibilityBtn.setSelected(false);
+                powerliftingBtn.setSelected(false);
+                weightliftingBtn.setSelected(true);
                 fitnessGoal = "weightlifting";
             }
         });
@@ -88,7 +113,7 @@ public class GetUserPreferences extends AppCompatActivity {
             goalErr.setText("");
 
         if(check) {
-//            startActivity(new Intent(GetUserPreferences.this, GetUserData.class));
+            startActivity(new Intent(GetUserPreferences.this, HomePage.class));
         }
     }
 }
