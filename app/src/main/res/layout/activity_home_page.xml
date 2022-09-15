@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/appName"
-        android:layout_width="414dp"
-        android:layout_height="67dp"
+        android:layout_width="603dp"
+        android:layout_height="87dp"
         android:background="@color/red_pink"
         android:gravity="center"
         android:text="OMNIFIT"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,11 +25,11 @@
 
     <TextView
         android:id="@+id/fitnessFunFact"
-        android:layout_width="351dp"
-        android:layout_height="157dp"
+        android:layout_width="505dp"
+        android:layout_height="207dp"
         android:background="@drawable/rounded_corner"
-        android:text="You use 200 muscles to take a single step forward."
         android:gravity="center"
+        android:text="You use 200 muscles to take a single step forward."
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -41,43 +41,127 @@
 
     <TextView
         android:id="@+id/greetingLbl"
-        android:layout_width="155dp"
-        android:layout_height="28dp"
+        android:layout_width="168dp"
+        android:layout_height="42dp"
         android:gravity="center_vertical"
         android:text="@string/greeting"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintVertical_bias="0.114" />
 
     <TextView
-        android:id="@+id/dailyGoalLbl"
-        android:layout_width="232dp"
-        android:layout_height="32dp"
+        android:id="@+id/todayDateLbl"
+        android:layout_width="235dp"
+        android:layout_height="39dp"
         android:gravity="center_vertical"
-        android:text="Todays Goals"
+        android:text="Today - Sep 14th"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
+        app:layout_constraintVertical_bias="0.434" />
+
+    <TextView
+        android:id="@+id/todayGoalLbl"
+        android:layout_width="188dp"
+        android:layout_height="40dp"
+        android:gravity="right"
+        android:text="Leg Day"
+        android:textColor="@color/red_pink"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.874"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.433" />
+
+    <TextView
+        android:id="@+id/excerciseGroup1"
+        android:layout_width="511dp"
+        android:layout_height="80dp"
+        android:background="@color/light_pink"
+        android:gravity="center"
+        android:text="Hamstring Excercises"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
+
+    <TextView
+        android:id="@+id/excerciseGroup3"
+        android:layout_width="511dp"
+        android:layout_height="80dp"
+        android:background="@color/light_pink"
+        android:gravity="center"
+        android:text="Glute Excercises"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
+
+    <TextView
+        android:id="@+id/excerciseGroup4"
+        android:layout_width="511dp"
+        android:layout_height="80dp"
+        android:background="@color/light_pink"
+        android:gravity="center"
+        android:text="Calves Excercises"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.753" />
+
+    <TextView
+        android:id="@+id/excerciseGroup5"
+        android:layout_width="511dp"
+        android:layout_height="80dp"
+        android:background="@color/light_pink"
+        android:gravity="center"
+        android:text="Quad Excercises"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.865" />
 
     <ImageView
         android:id="@+id/widgetBar"
-        android:layout_width="413dp"
-        android:layout_height="67dp"
+        android:layout_width="608dp"
+        android:layout_height="88dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
@@ -92,7 +176,7 @@
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.969"
+        app:layout_constraintVertical_bias="0.965"
         app:srcCompat="@drawable/home_icon" />
 
     <TextView
@@ -107,10 +191,23 @@
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="0.992" />
+
+
+    <ImageView
+        android:id="@+id/excerciseIcon"
+        android:layout_width="62dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintStart_toStartOf="@+id/widgetBar"
+        app:layout_constraintTop_toTopOf="@+id/appName"
+        app:layout_constraintVertical_bias="0.968"
+        app:srcCompat="@drawable/excercise_icon" />
 
     <TextView
-        android:id="@+id/homeIconLbl3"
+        android:id="@+id/excerciseIconLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EXCERCISES"
@@ -118,10 +215,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintHorizontal_bias="0.345"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="0.992" />
 
     <ImageView
         android:id="@+id/reportIcon"
@@ -132,20 +229,8 @@
         app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="@+id/widgetBar"
         app:layout_constraintTop_toTopOf="@+id/appName"
-        app:layout_constraintVertical_bias="0.97"
+        app:layout_constraintVertical_bias="0.965"
         app:srcCompat="@drawable/report_icon" />
-
-    <ImageView
-        android:id="@+id/reportIcon3"
-        android:layout_width="62dp"
-        android:layout_height="41dp"
-        app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.352"
-        app:layout_constraintStart_toStartOf="@+id/widgetBar"
-        app:layout_constraintTop_toTopOf="@+id/appName"
-        app:layout_constraintVertical_bias="0.973"
-        app:srcCompat="@drawable/excercise_icon" />
 
     <TextView
         android:id="@+id/reportIconLbl"
@@ -159,7 +244,7 @@
         app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="0.992" />
 
 
     <ImageView
@@ -171,7 +256,7 @@
         app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="@+id/widgetBar"
         app:layout_constraintTop_toTopOf="@+id/appName"
-        app:layout_constraintVertical_bias="0.968"
+        app:layout_constraintVertical_bias="0.965"
         app:srcCompat="@drawable/profile_icon" />
 
     <TextView
@@ -186,6 +271,6 @@
         app:layout_constraintHorizontal_bias=".915"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".995" />
+        app:layout_constraintVertical_bias=".992" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
