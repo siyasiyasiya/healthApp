@@ -14,7 +14,7 @@
         android:theme="@style/Theme.HealthApp"
         tools:targetApi="31">
         <activity
-            android:name=".HomePage"
+            android:name=".GetUserPreferences"
             android:exported="false" />
         <activity
             android:name=".GetUserData"

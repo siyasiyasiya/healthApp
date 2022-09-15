@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9245B"
+    android:background="#FF0057"
     android:backgroundTint="@color/purple_200"
-    tools:context=".GetUserData">
+    tools:context=".GetUserPreferences">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView16"
         android:layout_width="396dp"
         android:layout_height="65dp"
         android:layout_marginTop="16dp"
@@ -25,12 +25,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView17"
         android:layout_width="399dp"
         android:layout_height="45dp"
         android:layout_marginTop="60dp"
         android:fontFamily="sans-serif"
-        android:text="About You"
+        android:text="Your Health Preferences"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="26sp"
@@ -160,7 +160,7 @@
             android:inputType="number"
             android:maxLength="3"
             android:textAlignment="center"
-            android:textColor="#F9245B"
+            android:textColor="#8F8F8F"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -191,7 +191,7 @@
             android:inputType="number"
             android:maxLength="2"
             android:textAlignment="center"
-            android:textColor="#F9245B"
+            android:textColor="#8F8F8F"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.093"
             app:layout_constraintStart_toEndOf="@+id/feetField"
@@ -207,7 +207,7 @@
             android:inputType="number"
             android:maxLength="1"
             android:textAlignment="center"
-            android:textColor="#F9245B"
+            android:textColor="#8F8F8F"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.007"
             app:layout_constraintStart_toEndOf="@+id/textView12"
@@ -252,7 +252,7 @@
             android:inputType="number"
             android:maxLength="2"
             android:textAlignment="center"
-            android:textColor="#F9245B"
+            android:textColor="#8F8F8F"
             app:layout_constraintEnd_toStartOf="@+id/yearField"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="DD" />
@@ -274,11 +274,11 @@
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="199dp"
+            android:layout_width="310dp"
             android:layout_height="59dp"
             android:backgroundTint="#F9245B"
-            android:onClick="submitAboutYou"
-            android:text="Proceed"
+            android:onClick="completeSetUp"
+            android:text="Complete Profile Set Up"
             android:textSize="18sp"
             app:cornerRadius="50sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -313,15 +313,15 @@
             android:inputType="number"
             android:maxLength="4"
             android:textAlignment="center"
-            android:textColor="#F9245B"
+            android:textColor="#8F8F8F"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="YYYY" />
 
         <TextView
             android:id="@+id/genderErr"
-            android:layout_width="373dp"
-            android:layout_height="19dp"
+            android:layout_width="311dp"
+            android:layout_height="17dp"
             android:layout_marginTop="216dp"
             android:fontFamily="sans-serif"
             android:textAlignment="center"
@@ -342,7 +342,7 @@
             android:inputType="number"
             android:maxLength="2"
             android:textAlignment="center"
-            android:textColor="#F9245B"
+            android:textColor="#8F8F8F"
             app:layout_constraintEnd_toStartOf="@+id/dayField"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="MM" />
@@ -396,7 +396,6 @@
             android:layout_marginTop="152dp"
             android:layout_marginEnd="171dp"
             android:backgroundTint="#E3E3E3"
-            android:onClick="maleBtnClick"
             android:text="Male"
             android:textColor="#4E4E4E"
             app:cornerRadius="50sp"
@@ -412,7 +411,6 @@
             android:layout_marginStart="45dp"
             android:layout_marginTop="152dp"
             android:backgroundTint="#E3E3E3"
-            android:onClick="femaleBtnClick"
             android:text="Female"
             android:textColor="#4E4E4E"
             app:cornerRadius="50sp"
@@ -429,7 +427,6 @@
             android:layout_marginTop="152dp"
             android:layout_marginEnd="45dp"
             android:backgroundTint="#E3E3E3"
-            android:onClick="notSayClick"
             android:text="Rather Not Say"
             android:textColor="#4E4E4E"
             app:cornerRadius="50sp"
@@ -439,5 +436,4 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
