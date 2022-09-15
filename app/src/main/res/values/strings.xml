@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">healthApp</string>
+    <string name="greeting">Hi <font color='#F9245B'>Siya</font>!</string>
 </resources>

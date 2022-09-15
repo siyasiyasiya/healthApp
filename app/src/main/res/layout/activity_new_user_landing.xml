@@ -53,7 +53,7 @@
         android:id="@+id/button"
         android:layout_width="199dp"
         android:layout_height="57dp"
-        android:backgroundTint="#F9245B"
+        android:backgroundTint="@color/red_pink"
         android:onClick="createProfile"
         android:text="Create Profile"
         android:textSize="18sp"
