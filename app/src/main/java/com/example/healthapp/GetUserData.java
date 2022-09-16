@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.Objects;
 
 public class GetUserData extends AppCompatActivity {
@@ -171,7 +172,16 @@ public class GetUserData extends AppCompatActivity {
         }
 
         if(works){
-            startActivity(new Intent(GetUserData.this, GetUserPreferences.class));
+            Intent intent = new Intent(GetUserData.this, GetUserPreferences.class);
+            intent.putExtra("name", name);
+            intent.putExtra("gender", gender);
+            intent.putExtra("month", month);
+            intent.putExtra("day", day);
+            intent.putExtra("year", year);
+            intent.putExtra("feet", feet);
+            intent.putExtra("inches", inches);
+            intent.putExtra("weight", weight);
+            startActivity(intent);
         }
     }
 }
