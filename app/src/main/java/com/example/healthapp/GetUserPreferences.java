@@ -237,52 +237,52 @@ public class GetUserPreferences extends AppCompatActivity{
 
                     if (drop){
                         droppedFrom.removeView(textDropped);
-                    viewDroppedAt.addView(textDropped);
+                        viewDroppedAt.addView(textDropped);
 
-                    if (viewDroppedAt == topLayerMon) {
-                        weekDays[0] = String.valueOf(textDropped.getText());
-                    }
-                    if (viewDroppedAt == topLayerTues) {
-                        weekDays[1] = String.valueOf(textDropped.getText());
-                    }
-                    if (viewDroppedAt == topLayerWed) {
-                        weekDays[2] = String.valueOf(textDropped.getText());
-                    }
-                    if (viewDroppedAt == topLayerThurs) {
-                        weekDays[3] = String.valueOf(textDropped.getText());
-                    }
-                    if (viewDroppedAt == topLayerFri) {
-                        weekDays[4] = String.valueOf(textDropped.getText());
-                    }
-                    if (viewDroppedAt == topLayerSat) {
-                        weekDays[5] = String.valueOf(textDropped.getText());
-                    }
-                    if (viewDroppedAt == topLayerSun) {
-                        weekDays[6] = String.valueOf(textDropped.getText());
-                    }
+                        if (viewDroppedAt == topLayerMon) {
+                            weekDays[0] = String.valueOf(textDropped.getText());
+                        }
+                        if (viewDroppedAt == topLayerTues) {
+                            weekDays[1] = String.valueOf(textDropped.getText());
+                        }
+                        if (viewDroppedAt == topLayerWed) {
+                            weekDays[2] = String.valueOf(textDropped.getText());
+                        }
+                        if (viewDroppedAt == topLayerThurs) {
+                            weekDays[3] = String.valueOf(textDropped.getText());
+                        }
+                        if (viewDroppedAt == topLayerFri) {
+                            weekDays[4] = String.valueOf(textDropped.getText());
+                        }
+                        if (viewDroppedAt == topLayerSat) {
+                            weekDays[5] = String.valueOf(textDropped.getText());
+                        }
+                        if (viewDroppedAt == topLayerSun) {
+                            weekDays[6] = String.valueOf(textDropped.getText());
+                        }
 
-                    if (droppedFrom == topLayerMon) {
-                        weekDays[0] = "";
+                        if (droppedFrom == topLayerMon) {
+                            weekDays[0] = "";
+                        }
+                        if (droppedFrom == topLayerTues) {
+                            weekDays[1] = "";
+                        }
+                        if (droppedFrom == topLayerWed) {
+                            weekDays[2] = "";
+                        }
+                        if (droppedFrom == topLayerThurs) {
+                            weekDays[3] = "";
+                        }
+                        if (droppedFrom == topLayerFri) {
+                            weekDays[4] = "";
+                        }
+                        if (droppedFrom == topLayerSat) {
+                            weekDays[5] = "";
+                        }
+                        if (droppedFrom == topLayerSun) {
+                            weekDays[6] = "";
+                        }
                     }
-                    if (droppedFrom == topLayerTues) {
-                        weekDays[1] = "";
-                    }
-                    if (droppedFrom == topLayerWed) {
-                        weekDays[2] = "";
-                    }
-                    if (droppedFrom == topLayerThurs) {
-                        weekDays[3] = "";
-                    }
-                    if (droppedFrom == topLayerFri) {
-                        weekDays[4] = "";
-                    }
-                    if (droppedFrom == topLayerSat) {
-                        weekDays[5] = "";
-                    }
-                    if (droppedFrom == topLayerSun) {
-                        weekDays[6] = "";
-                    }
-                }
             }
 
             return true;
