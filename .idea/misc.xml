@@ -4,12 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/customborder.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/gender_pressed.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/pink_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="0.4607119951091828" />
-        <entry key="app/src/main/res/layout/activity_get_user_preferences.xml" value="0.5393722534179686" />
-        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.22401295537533966" />
+        <entry key="app/src/main/res/layout/activity_get_user_preferences.xml" value="0.5679229736328123" />
+        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.4285005652386209" />
         <entry key="app/src/main/res/layout/activity_new_user_landing.xml" value="0.31989593505859376" />
       </map>
     </option>

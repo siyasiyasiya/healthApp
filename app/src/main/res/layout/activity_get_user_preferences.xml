@@ -52,27 +52,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <LinearLayout
+            android:id="@+id/tues"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="@drawable/customborder"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/mon"
+            app:layout_constraintTop_toBottomOf="@+id/textView23">
+
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/textView27"
             android:layout_width="65dp"
             android:layout_height="31dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="352dp"
             android:fontFamily="sans-serif"
-            android:text="SUN"
+            android:text="SAT"
             android:textAlignment="center"
             android:textColor="@color/dark_maroon"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.428"
-            app:layout_constraintStart_toEndOf="@+id/textView27"
+            app:layout_constraintStart_toEndOf="@+id/textView26"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView15"
             android:layout_width="65dp"
             android:layout_height="31dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="352dp"
             android:fontFamily="sans-serif"
             android:text="MON"
@@ -87,7 +97,7 @@
             android:id="@+id/textView23"
             android:layout_width="65dp"
             android:layout_height="31dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="352dp"
             android:fontFamily="sans-serif"
             android:text="TUES"
@@ -102,7 +112,7 @@
             android:id="@+id/textView24"
             android:layout_width="65dp"
             android:layout_height="31dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="352dp"
             android:fontFamily="sans-serif"
             android:text="WED"
@@ -117,7 +127,7 @@
             android:id="@+id/textView25"
             android:layout_width="73dp"
             android:layout_height="28dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="352dp"
             android:fontFamily="sans-serif"
             android:text="THURS"
@@ -132,7 +142,7 @@
             android:id="@+id/textView26"
             android:layout_width="65dp"
             android:layout_height="31dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="352dp"
             android:fontFamily="sans-serif"
             android:text="FRI"
@@ -143,19 +153,88 @@
             app:layout_constraintStart_toEndOf="@+id/textView25"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <LinearLayout
+            android:id="@+id/sun"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="@drawable/customborder"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/sat"
+            app:layout_constraintTop_toBottomOf="@+id/textView28">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sat"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="@drawable/customborder"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/fri"
+            app:layout_constraintTop_toBottomOf="@+id/textView27">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fri"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="@drawable/customborder"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/thurs"
+            app:layout_constraintTop_toBottomOf="@+id/textView26">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/thurs"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/customborder"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/wed"
+            app:layout_constraintTop_toBottomOf="@+id/textView25">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wed"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="@drawable/customborder"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/tues"
+            app:layout_constraintTop_toBottomOf="@+id/textView24">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mon"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/customborder"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15">
+
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/textView28"
             android:layout_width="65dp"
             android:layout_height="31dp"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="352dp"
             android:fontFamily="sans-serif"
-            android:text="SAT"
+            android:text="SUN"
             android:textAlignment="center"
             android:textColor="@color/dark_maroon"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textView26"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toEndOf="@+id/textView27"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -229,16 +308,132 @@
             android:id="@+id/textView11"
             android:layout_width="572dp"
             android:layout_height="27dp"
-            android:layout_marginTop="296dp"
+            android:layout_marginTop="308dp"
             android:fontFamily="sans-serif"
-            android:text="Drag and drop to create your optional weekly workouts"
+            android:text="Drag and drop to create your personal weekly workout preference."
             android:textAlignment="center"
             android:textColor="#4E4E4E"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.482"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="541dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="516dp"
+            android:fontFamily="sans-serif"
+            android:text="You are not required to fill choose a workout for each day, however your input will help OmniFit generate daily workout sugestions as per your needs."
+            android:textAlignment="center"
+            android:textColor="#4E4E4E"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/bottomLinLayout"
+            android:layout_width="589dp"
+            android:layout_height="66dp"
+            android:background="@drawable/customborder"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.583"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.738">
+
+            <TextView
+                android:id="@+id/dragLegs"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/red_pink"
+                android:text="legs"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dragArms"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/red_pink"
+                android:text="arms"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dragBack"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/red_pink"
+                android:text="back"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dragChest"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/red_pink"
+                android:text="chest"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dragSho"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/red_pink"
+                android:maxLines="1"
+                android:text="shoulder"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dragRest"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/red_pink"
+                android:text="rest"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dragChoice"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/red_pink"
+                android:text="choice"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/button2"
@@ -282,77 +477,6 @@
             app:layout_constraintHorizontal_bias="0.263"
             app:layout_constraintStart_toEndOf="@+id/plyoBtn"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="594dp"
-            android:layout_height="111dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TableRow
-                android:id="@+id/mon"
-                android:layout_width="91dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#E8E8E8"
-                android:orientation="vertical" />
-
-            <TableRow
-                android:id="@+id/tues"
-                android:layout_width="85dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#E8E8E8"
-                android:orientation="vertical" />
-
-            <TableRow
-                android:id="@+id/wed"
-                android:layout_width="90dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#E8E8E8"
-                android:orientation="vertical" />
-
-            <TableRow
-                android:id="@+id/thurs"
-                android:layout_width="88dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#E8E8E8"
-                android:orientation="vertical" />
-
-            <TableRow
-                android:id="@+id/fri"
-                android:layout_width="83dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#E8E8E8"
-                android:orientation="vertical" />
-
-            <TableRow
-                android:id="@+id/sat"
-                android:layout_width="78dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#E8E8E8"
-                android:orientation="vertical" />
-
-            <TableRow
-                android:id="@+id/sun"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:backgroundTint="#E8E8E8"
-                android:orientation="vertical" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="602dp"
-            android:layout_height="176dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.777"/>
 
         <TextView
             android:id="@+id/goalErr"
