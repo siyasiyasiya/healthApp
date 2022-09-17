@@ -244,7 +244,7 @@
             android:layout_marginTop="180dp"
             android:backgroundTint="@color/button_selection_background"
             android:text="Weightlifting"
-            android:textColor="@color/botton_selection_text_color"
+            android:textColor="@color/button_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.245"
@@ -259,7 +259,7 @@
             android:layout_marginTop="180dp"
             android:backgroundTint="@color/button_selection_background"
             android:text="Powerlifting"
-            android:textColor="@color/botton_selection_text_color"
+            android:textColor="@color/button_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -272,7 +272,7 @@
             android:layout_marginTop="112dp"
             android:backgroundTint="@color/button_selection_background"
             android:text="Cardio"
-            android:textColor="@color/botton_selection_text_color"
+            android:textColor="@color/button_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -285,7 +285,7 @@
             android:layout_marginTop="180dp"
             android:backgroundTint="@color/button_selection_background"
             android:text="Flexibility"
-            android:textColor="@color/botton_selection_text_color"
+            android:textColor="@color/button_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintStart_toEndOf="@+id/powerliftiingBtn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -480,7 +480,7 @@
             android:layout_marginTop="112dp"
             android:backgroundTint="@color/button_selection_background"
             android:text="Plyometrics"
-            android:textColor="@color/botton_selection_text_color"
+            android:textColor="@color/button_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintStart_toEndOf="@+id/cardioBtn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -492,7 +492,7 @@
             android:layout_marginTop="112dp"
             android:backgroundTint="@color/button_selection_background"
             android:text="Strength"
-            android:textColor="@color/botton_selection_text_color"
+            android:textColor="@color/button_selection_text_color"
             app:cornerRadius="50sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.263"
