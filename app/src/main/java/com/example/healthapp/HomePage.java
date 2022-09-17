@@ -41,7 +41,7 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
     }
 
-    public void navHome(View v){
+    public void navProfile(View v){
         startActivity(new Intent(HomePage.this, UserProfile.class));
     }
 }

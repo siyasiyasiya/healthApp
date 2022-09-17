@@ -250,7 +250,7 @@
         android:id="@+id/profileIcon"
         android:layout_width="37dp"
         android:layout_height="39dp"
-        android:onClick="navHome"
+        android:onClick="navProfile"
         app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.895"
