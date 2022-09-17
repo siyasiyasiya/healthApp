@@ -44,7 +44,9 @@ public class GetUserPreferences extends AppCompatActivity{
     int feet=0;
     int inches =0;
     int weight = 0;
-    String[] weekDays = new String[7];
+    ArrayList<ArrayList<String>> weekDays = new ArrayList<>();
+
+    TextView workoutPrefsErr;
 
     File myExternalFile;
 
@@ -72,6 +74,8 @@ public class GetUserPreferences extends AppCompatActivity{
         View powerliftingBtn = findViewById(R.id.powerliftiingBtn);
         View weightliftingBtn = findViewById(R.id.weightliftingBtn);
         goalErr = findViewById(R.id.goalErr);
+
+        workoutPrefsErr = findViewById(R.id.workoutPrefsErr);
 
         TextView dragLeg = (TextView) findViewById(R.id.dragLegs);
         dragLeg.setOnLongClickListener(new LongClickListener());
@@ -113,6 +117,17 @@ public class GetUserPreferences extends AppCompatActivity{
         topLayerSun.setOnDragListener(new DragListener());
         bottomLayer.setOnDragListener(new DragListener());
 
+        for (int i = 0; i < 7; i++) {
+            weekDays.add(new ArrayList<>());
+        }
+
+        weekDays.get(0).add("Monday");
+        weekDays.get(1).add("Tuesday");
+        weekDays.get(2).add("Wednesday");
+        weekDays.get(3).add("Thursday");
+        weekDays.get(4).add("Friday");
+        weekDays.get(5).add("Saturday");
+        weekDays.get(6).add("Sunday");
 
         strengthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -229,63 +244,79 @@ public class GetUserPreferences extends AppCompatActivity{
                     ViewGroup viewDroppedAt = (ViewGroup) v;
                     ViewGroup droppedFrom = ((ViewGroup) textDropped.getParent());
 
-                    boolean drop = true;
-                    if (viewDroppedAt.getChildAt(0) != null)
-                        drop = false;
-                    if (viewDroppedAt == bottomLayer)
-                        drop = true;
-
-                    if (drop){
-                        droppedFrom.removeView(textDropped);
-                    viewDroppedAt.addView(textDropped);
-
                     if (viewDroppedAt == topLayerMon) {
-                        weekDays[0] = String.valueOf(textDropped.getText());
+                        addWorkout(v, textDropped, droppedFrom, viewDroppedAt, 0);
                     }
                     if (viewDroppedAt == topLayerTues) {
-                        weekDays[1] = String.valueOf(textDropped.getText());
+                        addWorkout(v, textDropped, droppedFrom, viewDroppedAt, 1);
                     }
                     if (viewDroppedAt == topLayerWed) {
-                        weekDays[2] = String.valueOf(textDropped.getText());
+                        addWorkout(v, textDropped, droppedFrom, viewDroppedAt, 2);
                     }
                     if (viewDroppedAt == topLayerThurs) {
-                        weekDays[3] = String.valueOf(textDropped.getText());
+                        addWorkout(v, textDropped, droppedFrom, viewDroppedAt, 3);
                     }
                     if (viewDroppedAt == topLayerFri) {
-                        weekDays[4] = String.valueOf(textDropped.getText());
+                        addWorkout(v, textDropped, droppedFrom, viewDroppedAt, 4);
                     }
                     if (viewDroppedAt == topLayerSat) {
-                        weekDays[5] = String.valueOf(textDropped.getText());
+                        addWorkout(v, textDropped, droppedFrom, viewDroppedAt, 5);
                     }
                     if (viewDroppedAt == topLayerSun) {
-                        weekDays[6] = String.valueOf(textDropped.getText());
+                        addWorkout(v, textDropped, droppedFrom, viewDroppedAt, 6);
                     }
 
                     if (droppedFrom == topLayerMon) {
-                        weekDays[0] = "";
+                        weekDays.get(0).remove(String.valueOf(textDropped.getText()));
                     }
                     if (droppedFrom == topLayerTues) {
-                        weekDays[1] = "";
+                        weekDays.get(1).remove(String.valueOf(textDropped.getText()));
                     }
                     if (droppedFrom == topLayerWed) {
-                        weekDays[2] = "";
+                        weekDays.get(2).remove(String.valueOf(textDropped.getText()));
                     }
                     if (droppedFrom == topLayerThurs) {
-                        weekDays[3] = "";
+                        weekDays.get(3).remove(String.valueOf(textDropped.getText()));
                     }
                     if (droppedFrom == topLayerFri) {
-                        weekDays[4] = "";
+                        weekDays.get(4).remove(String.valueOf(textDropped.getText()));
                     }
                     if (droppedFrom == topLayerSat) {
-                        weekDays[5] = "";
+                        weekDays.get(5).remove(String.valueOf(textDropped.getText()));
                     }
                     if (droppedFrom == topLayerSun) {
-                        weekDays[6] = "";
+                        weekDays.get(6).remove(String.valueOf(textDropped.getText()));
                     }
                 }
-            }
-
             return true;
+        }
+    }
+
+//    verifications for user workout choice
+//    also allows user to take out a workout choice from calendar
+//    validations such as you can;t work legs and have a rest day the same day
+//    can't work more than two muscle groups per day
+    public void addWorkout(View view, TextView textDropped, ViewGroup droppedFrom, ViewGroup viewDroppedAt, int index){
+        boolean works = true;
+        for (int i = 0; i < weekDays.get(index).size(); i++) {
+            if(weekDays.get(index).get(i).equals("rest") || weekDays.get(index).get(i).equals("choice"))
+                works = false;
+        }
+        if(textDropped.getText().equals("rest")||textDropped.getText().equals("choice")){
+            if (weekDays.get(index).size()>1)
+                works = false;
+        }
+        if(works){
+            if (weekDays.get(index).size()>2){
+                workoutPrefsErr.setText("You may not choose to work more than two muscle groups per day.");
+            }else {
+                weekDays.get(index).add(String.valueOf(textDropped.getText()));
+                droppedFrom.removeView(textDropped);
+                viewDroppedAt.addView(textDropped);
+                workoutPrefsErr.setText("");
+            }
+        }else{
+            workoutPrefsErr.setText("You may not combine a muscle group focus day with a rest or choice day");
         }
     }
 
@@ -300,13 +331,13 @@ public class GetUserPreferences extends AppCompatActivity{
 //        inches (height)
 //        weight
 //        fitness goal
-//        Mon choice
-//        tues choice
-//        wed choice
-//        thurs choice
-//        fri choice
-//        sat choice
-//        sun choice
+//        Mon choices
+//        tues choices
+//        wed choices
+//        thurs choices
+//        fri choices
+//        sat choices
+//        sun choices
         File path = getApplicationContext().getFilesDir();
         try {
             FileOutputStream writer = new FileOutputStream(new File(path, "userData.txt"));
@@ -330,10 +361,11 @@ public class GetUserPreferences extends AppCompatActivity{
             br.newLine();
             br.append(fitnessGoal);
             for (int i = 0; i < 7; i++) {
-                br.newLine();
-                br.append(weekDays[i]);
+                for (int j = 0; j < weekDays.get(i).size(); j++) {
+                    br.newLine();
+                    br.append(weekDays.get(i).get(j));
+                }
             }
-
             br.close();
 //            Toast.makeText(this, path.toString(), Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
