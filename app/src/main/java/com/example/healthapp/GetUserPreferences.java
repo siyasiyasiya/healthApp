@@ -48,8 +48,6 @@ public class GetUserPreferences extends AppCompatActivity{
 
     TextView workoutPrefsErr;
 
-    File myExternalFile;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -219,7 +217,8 @@ public class GetUserPreferences extends AppCompatActivity{
         if(check) {
             saveData(view);
             loadData(view);
-//            startActivity(new Intent(GetUserPreferences.this, HomePage.class));
+            Intent intent = new Intent(GetUserPreferences.this, HomePage.class);
+            startActivity(intent);
         }
     }
 
