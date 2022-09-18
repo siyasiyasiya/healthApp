@@ -57,35 +57,35 @@
 
     <TextView
         android:id="@+id/todayDateLbl"
-        android:layout_width="235dp"
-        android:layout_height="39dp"
+        android:layout_width="323dp"
+        android:layout_height="42dp"
         android:gravity="center_vertical"
-        android:text="Today - Sep 14th"
+        android:text="Wednesday Sep 14"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.431" />
 
     <TextView
         android:id="@+id/todayGoalLbl"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
+        android:layout_width="256dp"
+        android:layout_height="42dp"
         android:gravity="right"
-        android:text="Leg Day"
+        android:text="Shoulder &amp; Chest Day"
         android:textColor="@color/red_pink"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.874"
+        app:layout_constraintHorizontal_bias="0.878"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.432" />
 
     <android.widget.Button
         android:id="@+id/excerciseGroup1"
@@ -98,6 +98,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
