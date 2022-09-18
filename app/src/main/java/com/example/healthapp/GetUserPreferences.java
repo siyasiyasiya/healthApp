@@ -96,6 +96,9 @@ public class GetUserPreferences extends AppCompatActivity{
         TextView dragSho = (TextView) findViewById(R.id.dragSho);
         dragSho.setOnLongClickListener(new LongClickListener());
 
+        TextView dragAbbs = (TextView) findViewById(R.id.dragAbbs);
+        dragAbbs.setOnLongClickListener(new LongClickListener());
+
          topLayerMon = (LinearLayout) findViewById(R.id.mon);
          topLayerTues = (LinearLayout) findViewById(R.id.tues);
          topLayerWed = (LinearLayout) findViewById(R.id.wed);

@@ -3,6 +3,7 @@ package com.example.healthapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -153,5 +154,9 @@ public class HomePage extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void navProfile(View v){
+        startActivity(new Intent(HomePage.this, UserProfile.class));
     }
 }
