@@ -364,7 +364,7 @@
 
             <TextView
                 android:id="@+id/dragLegs"
-                android:layout_width="60dp"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
@@ -377,7 +377,7 @@
 
             <TextView
                 android:id="@+id/dragArms"
-                android:layout_width="60dp"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
@@ -390,7 +390,7 @@
 
             <TextView
                 android:id="@+id/dragBack"
-                android:layout_width="60dp"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
@@ -403,7 +403,7 @@
 
             <TextView
                 android:id="@+id/dragChest"
-                android:layout_width="60dp"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
@@ -416,7 +416,7 @@
 
             <TextView
                 android:id="@+id/dragSho"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
@@ -430,20 +430,20 @@
 
             <TextView
                 android:id="@+id/dragAbbs"
-                android:layout_width="60dp"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@color/red_pink"
                 android:maxWidth="65dp"
-                android:text="Abbs"
+                android:text="abs"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/dragRest"
-                android:layout_width="60dp"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
@@ -456,7 +456,7 @@
 
             <TextView
                 android:id="@+id/dragChoice"
-                android:layout_width="60dp"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"

@@ -2,14 +2,20 @@ package com.example.healthapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.DragEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -41,6 +47,11 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
 
     EditText nameTxt,monthTxt,dayTxt,yearTtx,feetTxt,inchTxt,weightTxt;
 
+    TextView workoutPrefsErr;
+    LinearLayout topLayerMon,topLayerTues,topLayerWed,topLayerThurs,topLayerFri,topLayerSat,topLayerSun, bottomLayer;
+
+    TextView dragLeg,dragChoice,dragArms,dragBack,dragChest,dragRest,dragSho,dragAbbs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +78,74 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
         goalSelection.setOnItemSelectedListener(this);
 
         loadChanges();
+
+        workoutPrefsErr = findViewById(R.id.workoutPrefsErr2);
+
+         dragLeg = (TextView) findViewById(R.id.dragLegs2);
+        dragLeg.setOnLongClickListener(new GetUserPreferences.LongClickListener());
+
+         dragChoice = (TextView) findViewById(R.id.dragChoice2);
+        dragChoice.setOnLongClickListener(new GetUserPreferences.LongClickListener());
+
+         dragArms = (TextView) findViewById(R.id.dragArms2);
+        dragArms.setOnLongClickListener(new GetUserPreferences.LongClickListener());
+
+         dragBack = (TextView) findViewById(R.id.dragBack2);
+        dragBack.setOnLongClickListener(new GetUserPreferences.LongClickListener());
+
+         dragChest = (TextView) findViewById(R.id.dragChest2);
+        dragChest.setOnLongClickListener(new GetUserPreferences.LongClickListener());
+
+         dragRest = (TextView) findViewById(R.id.dragRest2);
+        dragRest.setOnLongClickListener(new GetUserPreferences.LongClickListener());
+
+         dragSho = (TextView) findViewById(R.id.dragSho2);
+        dragSho.setOnLongClickListener(new GetUserPreferences.LongClickListener());
+
+         dragAbbs = (TextView) findViewById(R.id.dragAbbs2);
+        dragAbbs.setOnLongClickListener(new GetUserPreferences.LongClickListener());
+
+        topLayerMon = (LinearLayout) findViewById(R.id.mon2);
+        topLayerTues = (LinearLayout) findViewById(R.id.tues2);
+        topLayerWed = (LinearLayout) findViewById(R.id.wed2);
+        topLayerThurs = (LinearLayout) findViewById(R.id.thurs2);
+        topLayerFri = (LinearLayout) findViewById(R.id.fri2);
+        topLayerSat = (LinearLayout) findViewById(R.id.sat2);
+        topLayerSun = (LinearLayout) findViewById(R.id.sun2);
+
+        bottomLayer = (LinearLayout) findViewById(R.id.changeBottomLinLayout);
+
+        topLayerMon.setOnDragListener(new DragListener());
+        topLayerTues.setOnDragListener(new DragListener());
+        topLayerWed.setOnDragListener(new DragListener());
+        topLayerThurs.setOnDragListener(new DragListener());
+        topLayerFri.setOnDragListener(new DragListener());
+        topLayerSat.setOnDragListener(new DragListener());
+        topLayerSun.setOnDragListener(new DragListener());
+
+        bottomLayer.setOnDragListener(new DragListener());
+
+        for (int i = 1; i < weekDays.get(0).size(); i++) {
+            setUpCal(0, i, topLayerMon);
+        }
+        for (int i = 1; i < weekDays.get(1).size(); i++) {
+            setUpCal(1, i, topLayerTues);
+        }
+        for (int i = 1; i < weekDays.get(2).size(); i++) {
+            setUpCal(2, i, topLayerWed);
+        }
+        for (int i = 1; i < weekDays.get(3).size(); i++) {
+            setUpCal(3, i, topLayerThurs);
+        }
+        for (int i = 1; i < weekDays.get(4).size(); i++) {
+            setUpCal(4, i, topLayerFri);
+        }
+        for (int i = 1; i < weekDays.get(5).size(); i++) {
+            setUpCal(5, i, topLayerSat);
+        }
+        for (int i = 1; i < weekDays.get(6).size(); i++) {
+            setUpCal(6, i, topLayerSun);
+        }
 
         View changeFem = findViewById(R.id.changeFem);
         View changeMale = findViewById(R.id.changeMale);
@@ -136,6 +215,134 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                 changeOther.setSelected(true);
             }
         });
+    }
+
+    public void setUpCal(int index, int i, LinearLayout draggedTo){
+        if(weekDays.get(index).get(i).equals("legs"))
+            addWorkout(dragLeg, bottomLayer, draggedTo, index, true);
+        if(weekDays.get(index).get(i).equals("arms"))
+            addWorkout(dragArms, bottomLayer, draggedTo, index, true);
+        if(weekDays.get(index).get(i).equals("choice"))
+            addWorkout(dragChoice, bottomLayer, draggedTo, index, true);
+        if(weekDays.get(index).get(i).equals("rest"))
+            addWorkout(dragRest, bottomLayer, draggedTo, index, true);
+        if(weekDays.get(index).get(i).equals("back"))
+            addWorkout(dragBack, bottomLayer, draggedTo, index, true);
+        if(weekDays.get(index).get(i).equals("shoulder"))
+            addWorkout(dragSho, bottomLayer, draggedTo, index, true);
+        if(weekDays.get(index).get(i).equals("abs"))
+            addWorkout(dragAbbs, bottomLayer, draggedTo, index, true);
+        if(weekDays.get(index).get(i).equals("chest"))
+            addWorkout(dragChest, bottomLayer, draggedTo, index, true);
+    }
+
+    public static class LongClickListener implements View.OnLongClickListener {
+        @Override
+        public boolean onLongClick(View v) {
+            ClipData.Item item = new ClipData.Item((String)v.getTag());
+            String[] mimeTypes = { ClipDescription.MIMETYPE_TEXT_PLAIN };
+            ClipData data = new ClipData((String) v.getTag(), mimeTypes, item);
+            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+            v.startDrag(data, shadowBuilder, v, 0);
+            return true;
+        }
+    }
+
+    private class DragListener implements View.OnDragListener {
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+            switch(event.getAction()) {
+                case DragEvent.ACTION_DROP:
+                    TextView textDropped = (TextView) event.getLocalState();
+                    textDropped.setVisibility(View.VISIBLE);
+                    ViewGroup viewDroppedAt = (ViewGroup) v;
+                    ViewGroup droppedFrom = ((ViewGroup) textDropped.getParent());
+
+                    if (droppedFrom == topLayerMon) {
+                        weekDays.get(0).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerTues) {
+                        weekDays.get(1).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerWed) {
+                        weekDays.get(2).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerThurs) {
+                        weekDays.get(3).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerFri) {
+                        weekDays.get(4).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerSat) {
+                        weekDays.get(5).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerSun) {
+                        weekDays.get(6).remove(String.valueOf(textDropped.getText()));
+                    }
+
+                    if (viewDroppedAt == topLayerMon) {
+                        addWorkout(textDropped, droppedFrom, viewDroppedAt, 0, false);
+                    }
+                    if (viewDroppedAt == topLayerTues) {
+                        addWorkout(textDropped, droppedFrom, viewDroppedAt, 1, false);
+                    }
+                    if (viewDroppedAt == topLayerWed) {
+                        addWorkout(textDropped, droppedFrom, viewDroppedAt, 2, false);
+                    }
+                    if (viewDroppedAt == topLayerThurs) {
+                        addWorkout(textDropped, droppedFrom, viewDroppedAt, 3, false);
+                    }
+                    if (viewDroppedAt == topLayerFri) {
+                        addWorkout(textDropped, droppedFrom, viewDroppedAt, 4, false);
+                    }
+                    if (viewDroppedAt == topLayerSat) {
+                        addWorkout(textDropped, droppedFrom, viewDroppedAt, 5, false);
+                    }
+                    if (viewDroppedAt == topLayerSun) {
+                        addWorkout(textDropped, droppedFrom, viewDroppedAt, 6, false);
+                    }
+
+                    if(viewDroppedAt == bottomLayer){
+                        droppedFrom.removeView(textDropped);
+                        viewDroppedAt.addView(textDropped);
+                        workoutPrefsErr.setText("");
+                    }
+            }
+            return true;
+        }
+    }
+
+    //    verifications for user workout choice
+//    also allows user to take out a workout choice from calendar
+//    validations such as you can;t work legs and have a rest day the same day
+//    can't work more than two muscle groups per day
+    public void addWorkout(TextView textDropped, ViewGroup droppedFrom, ViewGroup viewDroppedAt, int index, boolean init){
+        boolean works = true;
+        if(!init) {
+            for (int i = 0; i < weekDays.get(index).size(); i++) {
+                if (weekDays.get(index).get(i).equals("rest") || weekDays.get(index).get(i).equals("choice"))
+                    works = false;
+            }
+            if (textDropped.getText().equals("rest") || textDropped.getText().equals("choice")) {
+                if (weekDays.get(index).size() > 1)
+                    works = false;
+            }
+        }
+        if(works){
+            if (weekDays.get(index).size()>3 && init){
+                workoutPrefsErr.setText("You may not choose to work more than two muscle groups per day.");
+            }else if(weekDays.get(index).size()>2 && !init) {
+                workoutPrefsErr.setText("You may not choose to work more than two muscle groups per day.");
+            }else{
+                if (!init)
+                    weekDays.get(index).add(String.valueOf(textDropped.getText()));
+                droppedFrom.removeView(textDropped);
+                viewDroppedAt.addView(textDropped);
+                workoutPrefsErr.setText("");
+            }
+        }else{
+            workoutPrefsErr.setText("You may not combine a muscle group focus day with a rest or choice day");
+        }
     }
 
     public void loadChanges(){

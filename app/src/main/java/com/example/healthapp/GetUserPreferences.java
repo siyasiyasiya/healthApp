@@ -116,6 +116,7 @@ public class GetUserPreferences extends AppCompatActivity{
         topLayerFri.setOnDragListener(new DragListener());
         topLayerSat.setOnDragListener(new DragListener());
         topLayerSun.setOnDragListener(new DragListener());
+
         bottomLayer.setOnDragListener(new DragListener());
 
         for (int i = 0; i < 7; i++) {
@@ -225,7 +226,7 @@ public class GetUserPreferences extends AppCompatActivity{
         }
     }
 
-    private class LongClickListener implements View.OnLongClickListener {
+    public static class LongClickListener implements View.OnLongClickListener {
         @Override
         public boolean onLongClick(View v) {
             ClipData.Item item = new ClipData.Item((String)v.getTag());
@@ -236,6 +237,7 @@ public class GetUserPreferences extends AppCompatActivity{
             return true;
         }
     }
+
     private class DragListener implements View.OnDragListener {
         @Override
         public boolean onDrag(View v, DragEvent event) {
@@ -268,6 +270,12 @@ public class GetUserPreferences extends AppCompatActivity{
                         addWorkout(v, textDropped, droppedFrom, viewDroppedAt, 6);
                     }
 
+                    if(viewDroppedAt == bottomLayer){
+                        droppedFrom.removeView(textDropped);
+                        viewDroppedAt.addView(textDropped);
+                        workoutPrefsErr.setText("");
+                    }
+
                     if (droppedFrom == topLayerMon) {
                         weekDays.get(0).remove(String.valueOf(textDropped.getText()));
                     }
@@ -298,7 +306,7 @@ public class GetUserPreferences extends AppCompatActivity{
 //    also allows user to take out a workout choice from calendar
 //    validations such as you can;t work legs and have a rest day the same day
 //    can't work more than two muscle groups per day
-    public void addWorkout(View view, TextView textDropped, ViewGroup droppedFrom, ViewGroup viewDroppedAt, int index){
+    private void addWorkout(View view, TextView textDropped, ViewGroup droppedFrom, ViewGroup viewDroppedAt, int index){
         boolean works = true;
         for (int i = 0; i < weekDays.get(index).size(); i++) {
             if(weekDays.get(index).get(i).equals("rest") || weekDays.get(index).get(i).equals("choice"))
