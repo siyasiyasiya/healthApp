@@ -365,8 +365,9 @@ public class GetUserPreferences extends AppCompatActivity{
                     br.append(weekDays.get(i).get(j));
                 }
             }
+            br.newLine();
+            br.append("end");
             br.close();
-//            Toast.makeText(this, path.toString(), Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -388,7 +389,7 @@ public class GetUserPreferences extends AppCompatActivity{
                 sb.append(text).append("\n");
             }
 
-            Toast.makeText(this, sb.toString(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, sb.toString(), Toast.LENGTH_SHORT).show();
         }catch(FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e) {
