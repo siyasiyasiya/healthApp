@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
@@ -19,11 +20,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class HomePage extends AppCompatActivity {
     String workoutDay;
     String name;
+    String[] muscleGroups = {"Legs", "Arms", "Back", "Chest", "Shoulder", "Abs", "Rest", "Choice"};
+    String[][] muscles = {{"Glutes", "Quads", "Hamstrings", "Calves", "Inner Thigh", "Hip"}, {"Biceps", "Forearms", "Triceps"}, {"Traps", "Middle Back", "Lower Back", "Lats"}, {"Chest"}, {"Traps", "Neck"}, {"Abs"}};
     String[] weekDays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
     String[] weekDaysAbbr = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
     String[] fitnessFactArr =  {"You use 200 muscles to take a single step",
@@ -75,18 +79,59 @@ public class HomePage extends AppCompatActivity {
                 day = weekDays[i];
             }
         }
-
         dateLbl.setText(date);
 
         //sets the workout day
         loadData(day);
         TextView todayWork = findViewById(R.id.todayGoalLbl);
         todayWork.setText(workoutDay);
+        displayExerciseGroups();
 
         //sets the greeting label
         TextView greeting = findViewById(R.id.greetingLbl);
         String text = "<string name=\"greeting\">Hi <font color='#F9245B'>" + name +"</font>!</string>";
         greeting.setText(Html.fromHtml(text));
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void displayExerciseGroups(){
+        Button group1 = findViewById(R.id.excerciseGroup1);
+        Button group2 = findViewById(R.id.excerciseGroup2);
+        Button group3 = findViewById(R.id.excerciseGroup3);
+        Button group4 = findViewById(R.id.excerciseGroup4);
+        Button[] groups = {group1, group2, group3, group4};
+        ArrayList<String> todayMuscles = new ArrayList<>();
+
+        //if the user chose a muscle group for the date
+        for(int i = 0; i < muscleGroups.length - 2; i++){
+            if(workoutDay.contains(muscleGroups[i])){
+                todayMuscles.addAll(Arrays.asList(muscles[i]));
+            }
+        }
+
+        //if the user chose rest or choice day
+        if(workoutDay.contains("Choice")){
+            for (String[] muscle : muscles) {
+                todayMuscles.addAll(Arrays.asList(muscle));
+            }
+        }
+
+        System.out.println(todayMuscles);
+
+        if(todayMuscles.size() <= 4){
+            for (int i = 0; i < todayMuscles.size(); i++) {
+                groups[i].setText(todayMuscles.get(i) + " Exercises");
+            }
+            for (int i = 3; i >= todayMuscles.size(); i--) {
+                groups[i].setVisibility(View.INVISIBLE);
+            }
+        } else {
+            for (int i = 0; i < 4; i++) {
+                String muscle = todayMuscles.get(randomNumber(0, todayMuscles.size()-1));
+                todayMuscles.remove(muscle);
+                groups[i].setText(muscle + " Exercises");
+            }
+        }
     }
 
     public int randomNumber(int a, int b) {
@@ -133,7 +178,7 @@ public class HomePage extends AppCompatActivity {
 //                sb.append(text).append("\n");
             }
 
-            //if the user didnt input a choice then it is automatically set to choice day
+            //if the user didn't input a choice then it is automatically set to choice day
             if(group.equals("")){
                 group = "Choice Day";
             }
