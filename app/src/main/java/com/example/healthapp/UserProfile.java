@@ -17,33 +17,31 @@ import java.io.InputStreamReader;
 public class UserProfile extends AppCompatActivity {
     String name = "";
     String gender = "";
+    int month = 0;
+    int day = 0;
+    int year=0;
+    int feet=0;
+    int inches =0;
+    int weight = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-
-        ImageView femaleIcon = findViewById(R.id.genderIcon1);
-        ImageView maleIcon = findViewById(R.id.genderIcon2);
-        ImageView otherIcon = findViewById(R.id.genderIcon3);
         TextView nameLbl = findViewById(R.id.nameLbl);
+        TextView genderView = findViewById(R.id.genderView);
+        TextView birthdayView = findViewById(R.id.birthdayView);
+        TextView heightView = findViewById(R.id.heightView);
+        TextView weightView = findViewById(R.id.weightView);
 
         loadData();
 
         nameLbl.setText("Hi " + name +"!");
-        if(gender.equals("female")){
-            femaleIcon.setAlpha(100);
-            maleIcon.setAlpha(25);
-            otherIcon.setAlpha(25);
-        }else if(gender.equals("male")){
-            femaleIcon.setAlpha(25);
-            maleIcon.setAlpha(100);
-            otherIcon.setAlpha(25);
-        }else{
-            femaleIcon.setAlpha(25);
-            maleIcon.setAlpha(25);
-            otherIcon.setAlpha(100);
-        }
+        genderView.setText(gender);
+        birthdayView.setText(month +"/"+day+"/"+year);
+        heightView.setText(feet + " ft " + inches+" in");
+        weightView.setText(weight+ " lbs");
+
     }
 
     public void navHome(View v){
@@ -60,6 +58,12 @@ public class UserProfile extends AppCompatActivity {
 //            String text;
             name = br.readLine();
             gender = br.readLine();
+            month = Integer.parseInt(br.readLine());
+            day = Integer.parseInt(br.readLine());
+            year = Integer.parseInt(br.readLine());
+            feet = Integer.parseInt(br.readLine());
+            inches = Integer.parseInt(br.readLine());
+            weight = Integer.parseInt(br.readLine());
 //            while((text = br.readLine()) != null){
 //                sb.append(text).append("\n");
 //            }

@@ -7,236 +7,106 @@
     tools:context=".UserProfile">
 
     <TextView
-        android:id="@+id/textView36"
-        android:layout_width="25dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="308dp"
-        android:layout_marginEnd="47dp"
-        android:fontFamily="sans-serif"
-        android:text="/"
-        android:textAlignment="center"
-        android:textColor="#4E4E4E"
+        android:id="@+id/heightView"
+        android:layout_width="263dp"
+        android:layout_height="32dp"
+        android:text="ft in"
+        android:textAlignment="textEnd"
+        android:textColor="#8F8F8F"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/dayText3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/dayText3"
-        android:layout_width="48dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="296dp"
-        android:layout_marginEnd="26dp"
-        android:ems="10"
-        android:inputType="number"
-        android:maxLength="2"
-        android:text="08"
-        android:textAlignment="center"
-        android:textColor="#F9245B"
-        app:layout_constraintEnd_toEndOf="@+id/textView37"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="DD" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.356" />
 
     <TextView
-        android:id="@+id/textView37"
-        android:layout_width="25dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="308dp"
-        android:fontFamily="sans-serif"
-        android:text="/"
-        android:textAlignment="center"
-        android:textColor="#4E4E4E"
+        android:id="@+id/birthdayView"
+        android:layout_width="263dp"
+        android:layout_height="32dp"
+        android:text="mm/dd/yyyy"
+        android:textAlignment="textEnd"
+        android:textColor="#8F8F8F"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/yearText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.286" />
 
     <TextView
-        android:id="@+id/textView35"
-        android:layout_width="81dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="252dp"
-        android:fontFamily="sans-serif"
-        android:text="Height"
-        android:textAlignment="center"
-        android:textColor="#4E4E4E"
+        android:id="@+id/genderView"
+        android:layout_width="263dp"
+        android:layout_height="32dp"
+        android:text="gender"
+        android:textAlignment="textEnd"
+        android:textColor="#8F8F8F"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintHorizontal_bias="0.724"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView38"
-        android:layout_width="81dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="252dp"
-        android:fontFamily="sans-serif"
-        android:text="Weight"
-        android:textAlignment="center"
-        android:textColor="#4E4E4E"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.915"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/yearText"
-        android:layout_width="60dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="296dp"
-        android:layout_marginEnd="372dp"
-        android:ems="10"
-        android:inputType="number"
-        android:maxLength="4"
-        android:text="2005"
-        android:textAlignment="center"
-        android:textColor="#F9245B"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="YYYY" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="81dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="252dp"
-        android:fontFamily="sans-serif"
-        android:text="Birthday"
-        android:textAlignment="center"
-        android:textColor="#4E4E4E"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/monthText"
-        android:layout_width="48dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="296dp"
-        android:ems="10"
-        android:inputType="number"
-        android:maxLength="2"
-        android:text="10"
-        android:textAlignment="center"
-        android:textColor="#F9245B"
-        app:layout_constraintEnd_toStartOf="@+id/textView36"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="MM" />
-
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="25dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="312dp"
-        android:layout_marginEnd="176dp"
-        android:fontFamily="sans-serif"
-        android:text="in"
-        android:textAlignment="center"
-        android:textColor="#4E4E4E"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/monthText3"
-        android:layout_width="48dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="296dp"
-        android:ems="10"
-        android:inputType="number"
-        android:maxLength="2"
-        android:text="10"
-        android:textAlignment="center"
-        android:textColor="#F9245B"
-        app:layout_constraintEnd_toStartOf="@+id/textView31"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="MM" />
-
-    <EditText
-        android:id="@+id/monthText4"
-        android:layout_width="48dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="480dp"
-        android:layout_marginTop="296dp"
-        android:layout_marginEnd="2dp"
-        android:ems="10"
-        android:inputType="number"
-        android:maxLength="2"
-        android:text="10"
-        android:textAlignment="center"
-        android:textColor="#F9245B"
-        app:layout_constraintEnd_toStartOf="@+id/textView39"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="MM" />
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.215" />
 
     <TextView
         android:id="@+id/textView31"
-        android:layout_width="25dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="308dp"
-        android:layout_marginEnd="4dp"
-        android:fontFamily="sans-serif"
-        android:text="ft"
-        android:textAlignment="center"
-        android:textColor="#4E4E4E"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height"
+        android:textColor="@color/dark_gray"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/dayText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView39"
-        android:layout_width="40dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="308dp"
-        android:layout_marginEnd="36dp"
-        android:fontFamily="sans-serif"
-        android:text="lbs"
-        android:textAlignment="center"
-        android:textColor="#4E4E4E"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/dayText"
-        android:layout_width="48dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="296dp"
-        android:layout_marginEnd="4dp"
-        android:ems="10"
-        android:inputType="number"
-        android:maxLength="2"
-        android:text="08"
-        android:textAlignment="center"
-        android:textColor="#F9245B"
-        app:layout_constraintEnd_toStartOf="@+id/textView30"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="DD" />
-
-    <TextView
-        android:id="@+id/appName3"
-        android:layout_width="603dp"
-        android:layout_height="87dp"
-        android:background="@color/red_pink"
-        android:gravity="center"
-        android:text="OMNIFIT"
-        android:textColor="@color/white"
-        android:textSize="50sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <TextView
+        android:id="@+id/weightView"
+        android:layout_width="263dp"
+        android:layout_height="32dp"
+        android:text="lbs"
+        android:textAlignment="textEnd"
+        android:textColor="#8F8F8F"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.431" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight"
+        android:textColor="@color/dark_gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.434" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textColor="@color/dark_gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.218" />
 
     <ImageView
         android:id="@+id/widgetBar3"
@@ -278,16 +148,28 @@
         app:layout_constraintVertical_bias="0.99" />
 
     <ImageView
-        android:id="@+id/excerciseIcon4"
-        android:layout_width="62dp"
-        android:layout_height="41dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/reportIcon4"
+        android:layout_width="37dp"
+        android:layout_height="39dp"
+        app:layout_constraintBottom_toBottomOf="@+id/reportIconLbl3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintHorizontal_bias="0.643"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/widgetBar3"
-        app:layout_constraintVertical_bias="0.319"
-        app:srcCompat="@drawable/excercise_icon" />
+        app:layout_constraintVertical_bias="0.394"
+        app:srcCompat="@drawable/report_icon" />
+
+    <ImageView
+        android:id="@+id/profileIcon4"
+        android:layout_width="37dp"
+        android:layout_height="39dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileIconLbl3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/widgetBar3"
+        app:layout_constraintVertical_bias="0.394"
+        app:srcCompat="@drawable/profile_icon" />
 
     <TextView
         android:id="@+id/excerciseIconLbl3"
@@ -304,16 +186,33 @@
         app:layout_constraintVertical_bias="0.99" />
 
     <ImageView
-        android:id="@+id/reportIcon4"
-        android:layout_width="37dp"
-        android:layout_height="39dp"
-        app:layout_constraintBottom_toBottomOf="@+id/reportIconLbl3"
+        android:id="@+id/excerciseIcon4"
+        android:layout_width="62dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintHorizontal_bias="0.348"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/widgetBar3"
-        app:layout_constraintVertical_bias="0.394"
-        app:srcCompat="@drawable/report_icon" />
+        app:layout_constraintVertical_bias="0.319"
+        app:srcCompat="@drawable/excercise_icon" />
+
+    <TextView
+        android:id="@+id/appName3"
+        android:layout_width="603dp"
+        android:layout_height="87dp"
+        android:background="@color/red_pink"
+        android:gravity="center"
+        android:text="OMNIFIT"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/reportIconLbl3"
@@ -329,18 +228,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.99" />
 
-    <ImageView
-        android:id="@+id/profileIcon4"
-        android:layout_width="37dp"
-        android:layout_height="39dp"
-        app:layout_constraintBottom_toBottomOf="@+id/profileIconLbl3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/widgetBar3"
-        app:layout_constraintVertical_bias="0.473"
-        app:srcCompat="@drawable/profile_icon" />
-
     <TextView
         android:id="@+id/profileIconLbl3"
         android:layout_width="wrap_content"
@@ -355,41 +242,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".99" />
 
-    <ImageView
-        android:id="@+id/genderIcon2"
-        android:layout_width="60dp"
-        android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183"
-        app:srcCompat="@drawable/male" />
-
-    <ImageView
-        android:id="@+id/genderIcon1"
-        android:layout_width="60dp"
-        android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.373"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182"
-        app:srcCompat="@drawable/female" />
-
-    <ImageView
-        android:id="@+id/genderIcon3"
-        android:layout_width="60dp"
-        android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182"
-        app:srcCompat="@drawable/other_gender" />
-
     <TextView
         android:id="@+id/nameLbl"
         android:layout_width="208dp"
@@ -397,7 +249,7 @@
         android:gravity="center_vertical"
         android:text="@string/greeting"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/red_pink"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -405,6 +257,59 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.132" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Birthday"
+        android:textColor="@color/dark_gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.289" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="500dp"
+        android:layout_height="1dp"
+        android:background="#B8B8B8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.26"
+        app:srcCompat="@drawable/customborder" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="500dp"
+        android:layout_height="1dp"
+        android:background="#B8B8B8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.328"
+        app:srcCompat="@drawable/customborder" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="500dp"
+        android:layout_height="1dp"
+        android:background="#B8B8B8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.4"
+        app:srcCompat="@drawable/customborder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

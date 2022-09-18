@@ -10,9 +10,9 @@
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="1.386444091796875" />
         <entry key="app/src/main/res/layout/activity_get_user_preferences.xml" value="0.8186019897460937" />
-        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.4042970740276832" />
+        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.413176163383152" />
         <entry key="app/src/main/res/layout/activity_new_user_landing.xml" value="0.31989593505859376" />
-        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.7222579956054687" />
+        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.7661834716796873" />
       </map>
     </option>
   </component>
