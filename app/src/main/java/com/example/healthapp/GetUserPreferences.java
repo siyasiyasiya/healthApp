@@ -248,6 +248,28 @@ public class GetUserPreferences extends AppCompatActivity{
                     ViewGroup viewDroppedAt = (ViewGroup) v;
                     ViewGroup droppedFrom = ((ViewGroup) textDropped.getParent());
 
+                    if (droppedFrom == topLayerMon) {
+                        weekDays.get(0).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerTues) {
+                        weekDays.get(1).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerWed) {
+                        weekDays.get(2).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerThurs) {
+                        weekDays.get(3).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerFri) {
+                        weekDays.get(4).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerSat) {
+                        weekDays.get(5).remove(String.valueOf(textDropped.getText()));
+                    }
+                    if (droppedFrom == topLayerSun) {
+                        weekDays.get(6).remove(String.valueOf(textDropped.getText()));
+                    }
+
                     if (viewDroppedAt == topLayerMon) {
                         addWorkout(v, textDropped, droppedFrom, viewDroppedAt, 0);
                     }
@@ -274,28 +296,6 @@ public class GetUserPreferences extends AppCompatActivity{
                         droppedFrom.removeView(textDropped);
                         viewDroppedAt.addView(textDropped);
                         workoutPrefsErr.setText("");
-                    }
-
-                    if (droppedFrom == topLayerMon) {
-                        weekDays.get(0).remove(String.valueOf(textDropped.getText()));
-                    }
-                    if (droppedFrom == topLayerTues) {
-                        weekDays.get(1).remove(String.valueOf(textDropped.getText()));
-                    }
-                    if (droppedFrom == topLayerWed) {
-                        weekDays.get(2).remove(String.valueOf(textDropped.getText()));
-                    }
-                    if (droppedFrom == topLayerThurs) {
-                        weekDays.get(3).remove(String.valueOf(textDropped.getText()));
-                    }
-                    if (droppedFrom == topLayerFri) {
-                        weekDays.get(4).remove(String.valueOf(textDropped.getText()));
-                    }
-                    if (droppedFrom == topLayerSat) {
-                        weekDays.get(5).remove(String.valueOf(textDropped.getText()));
-                    }
-                    if (droppedFrom == topLayerSun) {
-                        weekDays.get(6).remove(String.valueOf(textDropped.getText()));
                     }
                 }
             return true;

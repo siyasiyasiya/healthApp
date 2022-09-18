@@ -25,10 +25,11 @@
 
     <TextView
         android:id="@+id/fitnessFunFact"
-        android:layout_width="505dp"
+        android:layout_width="514dp"
         android:layout_height="207dp"
         android:background="@drawable/rounded_corner"
         android:gravity="center"
+        android:padding="30dp"
         android:text="You use 200 muscles to take a single step forward."
         android:textColor="@color/white"
         android:textSize="30sp"

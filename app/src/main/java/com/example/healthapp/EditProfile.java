@@ -396,7 +396,7 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                 e.printStackTrace();
             }
 //            Toast.makeText(this, txt, Toast.LENGTH_SHORT).show();
-            if (txt.equals(weekDay)){
+            if (txt==null || txt.equals(weekDay)){
                 day = false;
             }else {
                 weekDays.get(indexAdd).add(txt);
@@ -517,7 +517,6 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                 }
             }
             br.newLine();
-            br.append("end");
             br.close();
             startActivity(new Intent(EditProfile.this, UserProfile.class));
         } catch (FileNotFoundException e) {

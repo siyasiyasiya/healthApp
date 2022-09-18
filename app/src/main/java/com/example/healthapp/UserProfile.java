@@ -146,7 +146,7 @@ public class UserProfile extends AppCompatActivity {
                 e.printStackTrace();
             }
 //            Toast.makeText(this, txt, Toast.LENGTH_SHORT).show();
-            if (txt.equals(weekDay)){
+            if (txt==null || txt.equals(weekDay)){
                 day = false;
             }else {
                 weekDays.get(indexAdd).add(txt);
