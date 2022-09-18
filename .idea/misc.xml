@@ -9,11 +9,11 @@
         <entry key="app/src/main/res/drawable/pink_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.542057800292969" />
-        <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="0.5773223876953122" />
+        <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="0.20342712402343716" />
         <entry key="app/src/main/res/layout/activity_get_user_preferences.xml" value="0.5657577514648438" />
-        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.413176163383152" />
+        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.5560976111370582" />
         <entry key="app/src/main/res/layout/activity_new_user_landing.xml" value="0.31989593505859376" />
-        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.4635477964638937" />
+        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.4744242613076435" />
       </map>
     </option>
   </component>
