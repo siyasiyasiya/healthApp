@@ -436,7 +436,7 @@
                 android:layout_weight="1"
                 android:background="@color/red_pink"
                 android:maxWidth="65dp"
-                android:text="Abbs"
+                android:text="abs"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
