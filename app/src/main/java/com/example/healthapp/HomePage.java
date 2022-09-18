@@ -204,4 +204,7 @@ public class HomePage extends AppCompatActivity {
     public void navProfile(View v){
         startActivity(new Intent(HomePage.this, UserProfile.class));
     }
+    public void navExercises(View v){
+        startActivity(new Intent(HomePage.this, MainExcercises.class));
+    }
 }
