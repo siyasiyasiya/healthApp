@@ -167,11 +167,11 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
         inchTxt.setText(String.valueOf(inches));
         weightTxt.setText(String.valueOf(weight));
 
-        if(Objects.equals(fitnessGoal, "cardio"))
+        if(Objects.equals(fitnessGoal, "weight loss"))
             goalSelection.setSelection(0);
         if(Objects.equals(fitnessGoal, "plyometrics"))
             goalSelection.setSelection(1);
-        if(Objects.equals(fitnessGoal, "strength"))
+        if(Objects.equals(fitnessGoal, "muscle gain"))
             goalSelection.setSelection(2);
         if(Objects.equals(fitnessGoal, "powerlifting"))
             goalSelection.setSelection(3);
@@ -530,13 +530,13 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
             case 0:
-                fitnessGoal = "cardio";
+                fitnessGoal = "weight loss";
                 break;
             case 1:
                 fitnessGoal = "plyometrics";
                 break;
             case 2:
-                fitnessGoal = "strength";
+                fitnessGoal = "muscle gain";
                 break;
             case 3:
                 fitnessGoal = "powerlifting";

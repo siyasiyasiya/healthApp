@@ -21,4 +21,10 @@ public class MainExcercises extends AppCompatActivity {
     public void navProfile(View v){
         startActivity(new Intent(MainExcercises.this, UserProfile.class));
     }
+
+    public void openHamstrings(View v){
+        Intent intent = new Intent(MainExcercises.this, SpecificExercises.class);
+        intent.putExtra("type", "hamstrings");
+        startActivity(intent);
+    }
 }

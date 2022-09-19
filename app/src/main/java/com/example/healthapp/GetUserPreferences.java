@@ -140,7 +140,7 @@ public class GetUserPreferences extends AppCompatActivity{
                 flexibilityBtn.setSelected(false);
                 powerliftingBtn.setSelected(false);
                 weightliftingBtn.setSelected(false);
-                fitnessGoal = "strength";
+                fitnessGoal = "muscle gain";
             }
         });
 
@@ -166,7 +166,7 @@ public class GetUserPreferences extends AppCompatActivity{
                 flexibilityBtn.setSelected(false);
                 powerliftingBtn.setSelected(false);
                 weightliftingBtn.setSelected(false);
-                fitnessGoal = "cardio";
+                fitnessGoal = "weight loss";
             }
         });
 
