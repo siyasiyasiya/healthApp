@@ -11,19 +11,45 @@
     tools:context=".ExerciseDisplayFragment">
 
     <TextView
+        android:id="@+id/targetMuscle"
+        android:layout_width="458dp"
+        android:layout_height="38dp"
+        android:text="Target Muscle: Muscle"
+        android:textColor="@color/dark_gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseType"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/exerciseType"
+        android:layout_width="458dp"
+        android:layout_height="38dp"
+        android:text="Exercise Type: Type"
+        android:textColor="@color/dark_gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hardDumbell"
+        app:layout_constraintVertical_bias="0.006" />
+
+    <TextView
         android:id="@+id/exerciseLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="472dp"
+        android:layout_height="49dp"
         android:text="Exercise Type"
         android:textColor="@color/red_pink"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.354"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.018" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/viewExerciseBtn"
@@ -32,8 +58,46 @@
         android:text="View More"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.962"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.815"
+        app:layout_constraintStart_toEndOf="@+id/hardDumbell"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.018" />
+        app:layout_constraintVertical_bias="0.08" />
+
+    <ImageView
+        android:id="@+id/hardDumbell"
+        android:layout_width="69dp"
+        android:layout_height="47dp"
+        android:alpha="0.25"
+        android:src="@drawable/dumbell_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseLbl"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/mediumDumbell"
+        android:layout_width="69dp"
+        android:layout_height="47dp"
+        android:src="@drawable/dumbell_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseLbl"
+        app:layout_constraintVertical_bias="0.001" />
+
+    <ImageView
+        android:id="@+id/easyDumbell"
+        android:layout_width="69dp"
+        android:layout_height="47dp"
+        android:src="@drawable/dumbell_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseLbl"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

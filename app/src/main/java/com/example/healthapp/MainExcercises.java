@@ -41,7 +41,6 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                 }
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 ExerciseDisplayFragment exerciseDisplayFragment = new ExerciseDisplayFragment();
-                Button button = findViewById(R.id.viewExerciseBtn);
                 Bundle b = new Bundle();
                 b.putString("exercise", exercises[i]);
                 exerciseDisplayFragment.setArguments(b);

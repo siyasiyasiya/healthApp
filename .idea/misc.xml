@@ -15,9 +15,9 @@
         <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.340532120414402" />
         <entry key="app/src/main/res/layout/activity_main_excercises.xml" value="0.5815185546875002" />
         <entry key="app/src/main/res/layout/activity_new_user_landing.xml" value="0.31989593505859376" />
-        <entry key="app/src/main/res/layout/activity_specific_exercises.xml" value="0.43863067626953123" />
+        <entry key="app/src/main/res/layout/activity_specific_exercises.xml" value="0.5463714599609375" />
         <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.4744242613076435" />
-        <entry key="app/src/main/res/layout/fragment_exercise_display.xml" value="0.4825897216796875" />
+        <entry key="app/src/main/res/layout/fragment_exercise_display.xml" value="0.6454976947490987" />
       </map>
     </option>
   </component>
