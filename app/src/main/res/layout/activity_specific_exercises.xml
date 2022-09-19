@@ -7,6 +7,38 @@
     tools:context=".SpecificExercises">
 
     <TextView
+        android:id="@+id/exerciseTypeTxt"
+        android:layout_width="458dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="724dp"
+        android:text="Type: ExerciseType"
+        android:textColor="@color/dark_gray"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appName3"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <TextView
+        android:id="@+id/exerciseNameTxt"
+        android:layout_width="525dp"
+        android:layout_height="67dp"
+        android:gravity="center_vertical"
+        android:text="Exercise Name here"
+        android:textAlignment="textStart"
+        android:textColor="@color/red_pink"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <TextView
         android:id="@+id/appName5"
         android:layout_width="603dp"
         android:layout_height="87dp"
@@ -153,19 +185,17 @@
         app:layout_constraintVertical_bias="0.988"
         app:srcCompat="@drawable/plusbutton" />
 
-    <TextView
-        android:id="@+id/textView19"
+    <ImageView
+        android:id="@+id/imageView11"
         android:layout_width="84dp"
-        android:layout_height="33dp"
+        android:layout_height="58dp"
         android:onClick="goBack"
-        android:text="back"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.017"
+        app:srcCompat="@drawable/go_back" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

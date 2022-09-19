@@ -26,7 +26,7 @@ public class SpecificExercises extends AppCompatActivity {
             type = extras.getString("type");
         }
 
-        Log.d("data",callApi());
+//        Log.d("data",callApi());
 
     }
 
@@ -38,7 +38,7 @@ public class SpecificExercises extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=biceps")
+                .url("https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?name=")
                 .get()
                 .addHeader("X-RapidAPI-Key", "247582ae51msh56290d9b7f6a437p1ab9a1jsnf3636db8cad3")
                 .addHeader("X-RapidAPI-Host", "exercises-by-api-ninjas.p.rapidapi.com")

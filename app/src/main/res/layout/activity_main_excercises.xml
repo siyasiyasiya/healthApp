@@ -7,21 +7,65 @@
     tools:context=".MainExcercises">
 
     <TextView
-        android:id="@+id/nameLbl2"
-        android:layout_width="547dp"
-        android:layout_height="55dp"
-        android:gravity="center_vertical"
-        android:text="Search for different exercise options by muscle groups"
-        android:textAlignment="center"
-        android:textColor="@color/dark_gray"
+        android:id="@+id/genderView3"
+        android:layout_width="174dp"
+        android:layout_height="33dp"
+        android:text="Muscle Groups:"
+        android:textAlignment="textStart"
+        android:textColor="#8F8F8F"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113" />
+        app:layout_constraintVertical_bias="0.139" />
+
+    <TextView
+        android:id="@+id/genderView4"
+        android:layout_width="174dp"
+        android:layout_height="33dp"
+        android:text="Exercise Type:"
+        android:textAlignment="textStart"
+        android:textColor="#8F8F8F"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.139" />
+
+    <TextView
+        android:id="@+id/genderView5"
+        android:layout_width="174dp"
+        android:layout_height="33dp"
+        android:text="Difficulty Level:"
+        android:textAlignment="textStart"
+        android:textColor="#8F8F8F"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.139" />
+
+    <ScrollView
+        android:layout_width="603dp"
+        android:layout_height="640dp"
+        android:layout_marginTop="220dp"
+        app:layout_constraintBottom_toBottomOf="@+id/widgetBar4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/exerciseTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
     <ImageView
         android:id="@+id/widgetBar3"
@@ -170,243 +214,45 @@
         app:layout_constraintVertical_bias="0.988"
         app:srcCompat="@drawable/plusbutton" />
 
-    <ScrollView
-        android:layout_width="552dp"
-        android:layout_height="697dp"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/widgetBar3"
+    <Spinner
+        android:id="@+id/muscleSpinner"
+        android:layout_width="165dp"
+        android:layout_height="39dp"
+        android:background="@drawable/spinner_background"
+        android:spinnerMode="dropdown"
+        android:splitMotionEvents="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585">
+        app:layout_constraintVertical_bias="0.175" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    <Spinner
+        android:id="@+id/difficultySpinner"
+        android:layout_width="165dp"
+        android:layout_height="40dp"
+        android:background="@drawable/spinner_background"
+        android:spinnerMode="dropdown"
+        android:splitMotionEvents="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.176" />
 
-            <LinearLayout
-                android:layout_width="268dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup21"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openHamstrings"
-                    android:text="Hamstrings"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup26"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openNeck"
-                    android:text="neck"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup11"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openCalves"
-                    android:text="Calves"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openAbs"
-                    android:text="Abs"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup20"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openUpback"
-                    android:text="Upper Back"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup24"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openBiceps"
-                    android:text="Biceps"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup25"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openLats"
-                    android:text="Lats"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup30"
-                    android:layout_width="268dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openAbductors"
-                    android:text="Abductors"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="265dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup10"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openForearms"
-                    android:text="forearms"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup23"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openGlutes"
-                    android:text="Glutes"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup22"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openQuads"
-                    android:text="Quads"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup29"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openTriceps"
-                    android:text="Triceps"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup27"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openLowBack"
-                    android:text="low back"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup9"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openChest"
-                    android:text="Chest"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup28"
-                    android:layout_width="266dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openTraps"
-                    android:text="traps"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <android.widget.Button
-                    android:id="@+id/excerciseGroup31"
-                    android:layout_width="265dp"
-                    android:layout_height="98dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:onClick="openAdductors"
-                    android:text="adductors"
-                    android:textColor="@color/red_pink"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+    <Spinner
+        android:id="@+id/typeSpinner"
+        android:layout_width="165dp"
+        android:layout_height="39dp"
+        android:background="@drawable/spinner_background"
+        android:spinnerMode="dropdown"
+        android:splitMotionEvents="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.175" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
