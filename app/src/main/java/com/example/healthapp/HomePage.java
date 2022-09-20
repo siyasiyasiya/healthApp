@@ -118,6 +118,7 @@ public class HomePage extends AppCompatActivity {
 
         System.out.println(todayMuscles);
 
+        //updating buttons based on the day the user has chosen
         if(todayMuscles.size() <= 4){
             for (int i = 0; i < todayMuscles.size(); i++) {
                 groups[i].setText(todayMuscles.get(i) + " Exercises");
@@ -207,4 +208,9 @@ public class HomePage extends AppCompatActivity {
     public void navExercises(View v){
         startActivity(new Intent(HomePage.this, MainExcercises.class));
     }
+
+    public void navCalendar(View v){
+        startActivity(new Intent(HomePage.this, CalendarLog.class));
+    }
+
 }
