@@ -7,12 +7,32 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.ArrayMap;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainExcercises extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String[] workoutTypes = {"All", "Cardio", "Plyometrics", "Strength", "Powerlifting", "Flexibility", "Weightlifting"};
@@ -32,11 +52,12 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_excercises);
 
+        callApi();
+
         for (int i = 0; i < 10; i++) {
             fragmentManager = getSupportFragmentManager();
             if(findViewById(R.id.exerciseTable)!=null){
                 if(savedInstanceState!=null){
-
                     return;
                 }
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -184,6 +205,78 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    public void callApi(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=biceps";
+        //tring url = "https://google.com";
+
+//        HashMap mHeaders = new HashMap();
+//        mHeaders.put("X-RapidAPI-Key", "247582ae51msh56290d9b7f6a437p1ab9a1jsnf3636db8cad3");
+//        mHeaders.put("X-RapidAPI-Host", "exercises-by-api-ninjas.p.rapidapi.com");
+//        mHeaders.put("X-RapidAPI-Host", "exercises-by-api-ninjas.p.rapidapi.com");
+//
+//// Request a string response from the provided URL.
+//        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.GET,
+//                url,
+//                mHeaders,
+//                new Response.Listener() {
+//                    @Override
+//                    public void onResponse(Object response) {
+//                        System.out.println("hey siya");
+//                    }
+//
+//
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error)
+//                    {
+//                    }
+//                });
+//new one *****
+        JsonArrayRequest
+                jsonObjReq
+                = new JsonArrayRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d("Response : ",response.toString());
+                    }
+                    },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error)
+                    {
+                        Log.e("My error",error.getMessage());
+
+                    }
+                }) {
+
+            @Override
+            public Map getHeaders() throws AuthFailureError
+            {
+                HashMap mHeaders = new HashMap();
+                //mHeaders.put("Content-Type", "application/json");
+
+                mHeaders.put("X-RapidAPI-Key", "247582ae51msh56290d9b7f6a437p1ab9a1jsnf3636db8cad3");
+               mHeaders.put("X-RapidAPI-Host", "exercises-by-api-ninjas.p.rapidapi.com");
+
+
+                return mHeaders;
+            }
+
+        };
+
+
+// Add the request to the RequestQueue.
+               queue.add(jsonObjReq);
+        Log.d("TAG",  jsonObjReq.toString());
 
     }
 }
