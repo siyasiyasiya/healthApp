@@ -19,7 +19,7 @@ public class SpecificExercises extends AppCompatActivity {
     String difficulty = "";
     String instructions = "";
 
-
+    String muscleInp,typeInp, levelInp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class SpecificExercises extends AppCompatActivity {
         ImageView mediumDumbell = findViewById(R.id.mediumDumbell2);
         ImageView hardDumbell = findViewById(R.id.hardDumbell2);
 
+//        get data from Intent extras
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             name = extras.getString("name");
@@ -44,17 +45,27 @@ public class SpecificExercises extends AppCompatActivity {
             type = extras.getString("type");
             difficulty = extras.getString("difficulty");
             instructions = extras.getString("instructions");
+
+            muscleInp = extras.getString("muscle");
+            typeInp = extras.getString("type");
+            levelInp = extras.getString("level");
         }
 
         exerciseName.setText(name);
 
+        //        format and display exercise data into views
         String typeDisplay = type;
+        String muscleDisplay = muscle;
         if(type.contains("_")){
             typeDisplay = type.substring(0, type.indexOf("_"))+" "+type.substring(type.indexOf("_")+1, type.indexOf("_")+2).toUpperCase()+type.substring(type.indexOf("_")+2);
         }
+        if(muscle.contains("_")){
+            muscleDisplay = muscle.substring(0, muscle.indexOf("_"))+" "+muscle.substring(muscle.indexOf("_")+1, muscle.indexOf("_")+2).toUpperCase()+muscle.substring(muscle.indexOf("_")+2);
+        }
 
-        exerciseMuscle.setText("Target Muscle: "+muscle.substring(0,1).toUpperCase() + muscle.substring(1));
+        exerciseMuscle.setText("Target Muscle: "+muscleDisplay.substring(0,1).toUpperCase() + muscleDisplay.substring(1));
         exerciseType.setText("Exercise Type: "+typeDisplay.substring(0,1).toUpperCase() + typeDisplay.substring(1));
+
         exerciseEquipment.setText("Equipment: "+equipment.substring(0,1).toUpperCase() + equipment.substring(1));
         exerciseInstructions.setText(instructions);
 
@@ -76,7 +87,11 @@ public class SpecificExercises extends AppCompatActivity {
     }
 
     public void goBack(View v){
-        startActivity(new Intent(SpecificExercises.this, MainExcercises.class));
+        Intent intent = new Intent(SpecificExercises.this, MainExcercises.class);
+        intent.putExtra("muscle", muscleInp);
+        intent.putExtra("type", typeInp);
+        intent.putExtra("level", levelInp);
+        startActivity(intent);
     }
 
     public void navHome(View v){

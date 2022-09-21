@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -33,17 +34,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 public class MainExcercises extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private static final String[] workoutTypes = {"All", "Cardio", "Plyometrics", "Strength", "Powerlifting", "Flexibility", "Weightlifting"};
-    private static final String[] muscleGroups = {"All", "Glutes", "Quads", "Hamstrings", "Calves", "Abductors", "Adductors","Biceps", "Forearms", "Triceps","Traps", "Middle Back", "Lower Back", "Lats", "Chest", "Neck","Abs"};
+    private static final String[] workoutTypes = {"All", "Cardio", "Plyometrics", "Strength", "Powerlifting", "Stretching", "Olympic Weightlifting"};
+    private static final String[] muscleGroups = {"All", "Glutes", "Quads", "Hamstrings", "Calves", "Abductors", "Adductors","Biceps", "Forearms", "Triceps","Traps", "Middle Back", "Lower Back", "Lats", "Chest", "Neck","Abdominals"};
     private static final String[] levels = {"All", "Beginner", "Intermediate", "Expert"};
 
     Spinner muscleSelect, typeSelect, levelSelect;
 
-    String muscle = "All", type = "All", level = "All";
+    String muscle = "all", type = "all", level = "all";
 
     ArrayList<ArrayList<String>> exercises=new ArrayList<>();
 
@@ -54,27 +58,16 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_excercises);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            muscle = extras.getString("muscle");
+            type = extras.getString("type");
+            level = extras.getString("level");
+        }
+
         for (int i = 0; i < 10; i++) {
             exercises.add(new ArrayList<>());
         }
-
-        callApi();
-//        Toast.makeText(MainExcercises.this, exercises.get(0).get(0), Toast.LENGTH_SHORT).show();
-
-//        for (int i = 0; i < 10; i++) {
-//            fragmentManager = getSupportFragmentManager();
-//            if(findViewById(R.id.exerciseTable)!=null){
-//                if(savedInstanceState!=null){
-//                    return;
-//                }
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                ExerciseDisplayFragment exerciseDisplayFragment = new ExerciseDisplayFragment();
-//                Bundle b = new Bundle();
-//                b.putString("exercise", exercises.get(0).get(0));
-//                exerciseDisplayFragment.setArguments(b);
-//                fragmentTransaction.add(R.id.exerciseTable, exerciseDisplayFragment).commit();
-//            }
-//        }
 
         muscleSelect = (Spinner)findViewById(R.id.muscleSpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainExcercises.this,
@@ -96,6 +89,8 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         levelSelect.setAdapter(adapter3);
         levelSelect.setOnItemSelectedListener(this);
+
+        callApi();
     }
 
     public void navHome(View v){
@@ -118,7 +113,7 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                     muscle = "glutes";
                     break;
                 case 2:
-                    muscle = "quads";
+                    muscle = "quadriceps";
                     break;
                 case 3:
                     muscle = "hamstrings";
@@ -145,10 +140,10 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                     muscle = "traps";
                     break;
                 case 12:
-                    muscle = "middle back";
+                    muscle = "middle_back";
                     break;
                 case 13:
-                    muscle = "lower back";
+                    muscle = "lower_back";
                     break;
                 case 14:
                     muscle = "lats";
@@ -183,10 +178,10 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                     type = "powerlifting";
                     break;
                 case 5:
-                    type = "flexibility";
+                    type = "stretching";
                     break;
                 case 6:
-                    type = "weightlifting";
+                    type = "olympic_weightlifting";
                     break;
 
             }
@@ -208,6 +203,10 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                     break;
             }
         }
+//        empty layout with views every time a filter is changed
+        LinearLayout ll = (LinearLayout) findViewById(R.id.exerciseTable);
+        ll.removeAllViews();
+        callApi();
     }
 
     @Override
@@ -215,9 +214,34 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
 
     }
 
+//    make call to api
     public void callApi(){
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?";
+
+//        add values to api url based on user filter
+        boolean paramAdded = false;
+        if(!Objects.equals(type, "all")){
+            url+="type="+type;
+            paramAdded = true;
+        }
+        if(!Objects.equals(muscle, "all")){
+            if (paramAdded)
+                url+="&muscle="+muscle;
+            else {
+                url += "muscle=" + muscle;
+                paramAdded = true;
+            }
+        }
+        if(!Objects.equals(level, "all")){
+            if (paramAdded)
+                url+="&difficulty="+level;
+            else {
+                url += "difficulty=" + level;
+            }
+        }
+
+//        send req to API
         JsonArrayRequest
                 jsonObjReq
                 = new JsonArrayRequest(
@@ -228,6 +252,7 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
+//                            send data to fragment
                                 fragmentManager = getSupportFragmentManager();
                                 if(findViewById(R.id.exerciseTable)!=null){
                                     for (int i = 0; i < response.length(); i++) {
@@ -240,7 +265,9 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                                     b.putString("equipment", response.getJSONObject(i).getString("equipment"));
                                     b.putString("difficulty", response.getJSONObject(i).getString("difficulty"));
                                     b.putString("instructions", response.getJSONObject(i).getString("instructions"));
-
+                                        b.putString("muscle", muscle);
+                                        b.putString("type",type);
+                                        b.putString("level", level);
                                     exerciseDisplayFragment.setArguments(b);
                                     fragmentTransaction.add(R.id.exerciseTable, exerciseDisplayFragment).commit();
                                 }
@@ -259,6 +286,7 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                     }
                 }) {
 
+//            headers for api
             @Override
             public Map getHeaders() throws AuthFailureError
             {
@@ -273,8 +301,6 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
             }
 
         };
-
-
 // Add the request to the RequestQueue.
                queue.add(jsonObjReq);
         Log.d("TAG",  jsonObjReq.toString());

@@ -35,6 +35,8 @@ public class ExerciseDisplayFragment extends Fragment {
         String difficulty = "";
         String instructions = "";
 
+        String muscleInp, typeInp, lvlInp;
+
     private Button clickBtn;
 
     public ExerciseDisplayFragment() {
@@ -82,6 +84,8 @@ public class ExerciseDisplayFragment extends Fragment {
         ImageView mediumDumbell = view.findViewById(R.id.mediumDumbell);
         ImageView hardDumbell = view.findViewById(R.id.hardDumbell);
 
+//        get data from activity
+//        activity -> fragment data sending example
         Bundle bundle = getArguments();
         name = bundle.getString("name");
         type = bundle.getString("type");
@@ -90,14 +94,23 @@ public class ExerciseDisplayFragment extends Fragment {
         difficulty = bundle.getString("difficulty");
         instructions = bundle.getString("instructions");
 
-        exerciseLbl.setText(name);
+        muscleInp = bundle.getString("muscle");
+        typeInp = bundle.getString("type");
+        lvlInp = bundle.getString("level");
 
+
+//        format and display exercise data into views
+        exerciseLbl.setText(name);
         String typeDisplay = type;
+        String muscleDisplay = muscle;
         if(type.contains("_")){
             typeDisplay = type.substring(0, type.indexOf("_"))+" "+type.substring(type.indexOf("_")+1, type.indexOf("_")+2).toUpperCase()+type.substring(type.indexOf("_")+2);
         }
+        if(muscle.contains("_")){
+            muscleDisplay = muscle.substring(0, muscle.indexOf("_"))+" "+muscle.substring(muscle.indexOf("_")+1, muscle.indexOf("_")+2).toUpperCase()+muscle.substring(muscle.indexOf("_")+2);
+        }
 
-        muscleGroup.setText("Target Muscle: "+muscle.substring(0,1).toUpperCase() + muscle.substring(1));
+        muscleGroup.setText("Target Muscle: "+muscleDisplay.substring(0,1).toUpperCase() + muscleDisplay.substring(1));
         exerciseType.setText("Exercise Type: "+typeDisplay.substring(0,1).toUpperCase() + typeDisplay.substring(1));
 
         if(difficulty.equals("beginner")){
@@ -110,7 +123,7 @@ public class ExerciseDisplayFragment extends Fragment {
             mediumDumbell.setAlpha(1.0F);
             hardDumbell.setAlpha(0.25F);
         }
-        if(difficulty.equals("extreme")){
+        if(difficulty.equals("expert")){
             easyDumbell.setAlpha(1.0F);
             mediumDumbell.setAlpha(1.0F);
             hardDumbell.setAlpha(1.0F);
@@ -127,6 +140,10 @@ public class ExerciseDisplayFragment extends Fragment {
                 intent.putExtra("equipment", equipment);
                 intent.putExtra("difficulty", difficulty);
                 intent.putExtra("instructions", instructions);
+
+                intent.putExtra("muscle", muscleInp);
+                intent.putExtra("type", typeInp);
+                intent.putExtra("level", lvlInp);
                 startActivity(intent);
             }
         });
