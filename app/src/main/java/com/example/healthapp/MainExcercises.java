@@ -29,8 +29,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,11 +41,11 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
     private static final String[] muscleGroups = {"All", "Glutes", "Quads", "Hamstrings", "Calves", "Abductors", "Adductors","Biceps", "Forearms", "Triceps","Traps", "Middle Back", "Lower Back", "Lats", "Chest", "Neck","Abs"};
     private static final String[] levels = {"All", "Beginner", "Intermediate", "Expert"};
 
-    String[] exercises = {"Squats", "Lunges", "Leg Presses", "Split Squat", "RDL", "Single Leg Squat", "Hip Extensions", "Bicep Curls", "Overhead Presses", "Hamstring Curls"};
-
     Spinner muscleSelect, typeSelect, levelSelect;
 
     String muscle = "All", type = "All", level = "All";
+
+    ArrayList<ArrayList<String>> exercises=new ArrayList<>();
 
     public static FragmentManager fragmentManager;
 
@@ -52,22 +54,27 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_excercises);
 
-        callApi();
-
         for (int i = 0; i < 10; i++) {
-            fragmentManager = getSupportFragmentManager();
-            if(findViewById(R.id.exerciseTable)!=null){
-                if(savedInstanceState!=null){
-                    return;
-                }
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                ExerciseDisplayFragment exerciseDisplayFragment = new ExerciseDisplayFragment();
-                Bundle b = new Bundle();
-                b.putString("exercise", exercises[i]);
-                exerciseDisplayFragment.setArguments(b);
-                fragmentTransaction.add(R.id.exerciseTable, exerciseDisplayFragment).commit();
-            }
+            exercises.add(new ArrayList<>());
         }
+
+        callApi();
+//        Toast.makeText(MainExcercises.this, exercises.get(0).get(0), Toast.LENGTH_SHORT).show();
+
+//        for (int i = 0; i < 10; i++) {
+//            fragmentManager = getSupportFragmentManager();
+//            if(findViewById(R.id.exerciseTable)!=null){
+//                if(savedInstanceState!=null){
+//                    return;
+//                }
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                ExerciseDisplayFragment exerciseDisplayFragment = new ExerciseDisplayFragment();
+//                Bundle b = new Bundle();
+//                b.putString("exercise", exercises.get(0).get(0));
+//                exerciseDisplayFragment.setArguments(b);
+//                fragmentTransaction.add(R.id.exerciseTable, exerciseDisplayFragment).commit();
+//            }
+//        }
 
         muscleSelect = (Spinner)findViewById(R.id.muscleSpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainExcercises.this,
@@ -210,33 +217,7 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
 
     public void callApi(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=biceps";
-        //tring url = "https://google.com";
-
-//        HashMap mHeaders = new HashMap();
-//        mHeaders.put("X-RapidAPI-Key", "247582ae51msh56290d9b7f6a437p1ab9a1jsnf3636db8cad3");
-//        mHeaders.put("X-RapidAPI-Host", "exercises-by-api-ninjas.p.rapidapi.com");
-//        mHeaders.put("X-RapidAPI-Host", "exercises-by-api-ninjas.p.rapidapi.com");
-//
-//// Request a string response from the provided URL.
-//        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.GET,
-//                url,
-//                mHeaders,
-//                new Response.Listener() {
-//                    @Override
-//                    public void onResponse(Object response) {
-//                        System.out.println("hey siya");
-//                    }
-//
-//
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error)
-//                    {
-//                    }
-//                });
-//new one *****
+        String url = "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?";
         JsonArrayRequest
                 jsonObjReq
                 = new JsonArrayRequest(
@@ -246,7 +227,27 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response : ",response.toString());
+                        try {
+                                fragmentManager = getSupportFragmentManager();
+                                if(findViewById(R.id.exerciseTable)!=null){
+                                    for (int i = 0; i < response.length(); i++) {
+                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                    ExerciseDisplayFragment exerciseDisplayFragment = new ExerciseDisplayFragment();
+                                    Bundle b = new Bundle();
+                                    b.putString("name", response.getJSONObject(i).getString("name"));
+                                    b.putString("type", response.getJSONObject(i).getString("type"));
+                                    b.putString("muscle", response.getJSONObject(i).getString("muscle"));
+                                    b.putString("equipment", response.getJSONObject(i).getString("equipment"));
+                                    b.putString("difficulty", response.getJSONObject(i).getString("difficulty"));
+                                    b.putString("instructions", response.getJSONObject(i).getString("instructions"));
+
+                                    exerciseDisplayFragment.setArguments(b);
+                                    fragmentTransaction.add(R.id.exerciseTable, exerciseDisplayFragment).commit();
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                     },
                 new Response.ErrorListener() {
@@ -277,6 +278,5 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
 // Add the request to the RequestQueue.
                queue.add(jsonObjReq);
         Log.d("TAG",  jsonObjReq.toString());
-
     }
 }

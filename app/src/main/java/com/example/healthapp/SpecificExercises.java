@@ -6,20 +6,72 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.IOException;
 
 public class SpecificExercises extends AppCompatActivity {
+    String name = "";
+    String muscle = "";
     String type = "";
+    String equipment = "";
+    String difficulty = "";
+    String instructions = "";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specific_exercises);
 
+        TextView exerciseName = findViewById(R.id.exerciseNameTxt);
+        TextView exerciseType = findViewById(R.id.exerciseTypeTxt);
+        TextView exerciseMuscle = findViewById(R.id.targetMuscleTxt2);
+        TextView exerciseEquipment = findViewById(R.id.equipmentTxt);
+        TextView exerciseInstructions = findViewById(R.id.instructionsTxt);
+
+        ImageView easyDumbell = findViewById(R.id.easyDumbell2);
+        ImageView mediumDumbell = findViewById(R.id.mediumDumbell2);
+        ImageView hardDumbell = findViewById(R.id.hardDumbell2);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            name = extras.getString("name");
+            muscle = extras.getString("muscle");
+            equipment = extras.getString("equipment");
             type = extras.getString("type");
+            difficulty = extras.getString("difficulty");
+            instructions = extras.getString("instructions");
+        }
+
+        exerciseName.setText(name);
+
+        String typeDisplay = type;
+        if(type.contains("_")){
+            typeDisplay = type.substring(0, type.indexOf("_"))+" "+type.substring(type.indexOf("_")+1, type.indexOf("_")+2).toUpperCase()+type.substring(type.indexOf("_")+2);
+        }
+
+        exerciseMuscle.setText("Target Muscle: "+muscle.substring(0,1).toUpperCase() + muscle.substring(1));
+        exerciseType.setText("Exercise Type: "+typeDisplay.substring(0,1).toUpperCase() + typeDisplay.substring(1));
+        exerciseEquipment.setText("Equipment: "+equipment.substring(0,1).toUpperCase() + equipment.substring(1));
+        exerciseInstructions.setText(instructions);
+
+        if(difficulty.equals("beginner")){
+            easyDumbell.setAlpha(1.0F);
+            mediumDumbell.setAlpha(0.25F);
+            hardDumbell.setAlpha(0.25F);
+        }
+        if(difficulty.equals("intermediate")){
+            easyDumbell.setAlpha(1.0F);
+            mediumDumbell.setAlpha(1.0F);
+            hardDumbell.setAlpha(0.25F);
+        }
+        if(difficulty.equals("extreme")){
+            easyDumbell.setAlpha(1.0F);
+            mediumDumbell.setAlpha(1.0F);
+            hardDumbell.setAlpha(1.0F);
         }
     }
 

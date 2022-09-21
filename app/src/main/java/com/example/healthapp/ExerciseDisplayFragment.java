@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
     /**
@@ -27,7 +28,12 @@ public class ExerciseDisplayFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    String exerciseName = "";
+        String name = "";
+        String muscle = "";
+        String type = "";
+        String equipment = "";
+        String difficulty = "";
+        String instructions = "";
 
     private Button clickBtn;
 
@@ -69,16 +75,58 @@ public class ExerciseDisplayFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_exercise_display, container, false);
         clickBtn = view.findViewById(R.id.viewExerciseBtn);
         TextView exerciseLbl = view.findViewById(R.id.exerciseLbl);
+        TextView muscleGroup = view.findViewById(R.id.exerciseType);
+        TextView exerciseType = view.findViewById(R.id.targetMuscle);
+
+        ImageView easyDumbell = view.findViewById(R.id.easyDumbell);
+        ImageView mediumDumbell = view.findViewById(R.id.mediumDumbell);
+        ImageView hardDumbell = view.findViewById(R.id.hardDumbell);
 
         Bundle bundle = getArguments();
-        exerciseName = bundle.getString("exercise");
-        exerciseLbl.setText(exerciseName);
+        name = bundle.getString("name");
+        type = bundle.getString("type");
+        muscle = bundle.getString("muscle");
+        equipment = bundle.getString("equipment");
+        difficulty = bundle.getString("difficulty");
+        instructions = bundle.getString("instructions");
+
+        exerciseLbl.setText(name);
+
+        String typeDisplay = type;
+        if(type.contains("_")){
+            typeDisplay = type.substring(0, type.indexOf("_"))+" "+type.substring(type.indexOf("_")+1, type.indexOf("_")+2).toUpperCase()+type.substring(type.indexOf("_")+2);
+        }
+
+        muscleGroup.setText("Target Muscle: "+muscle.substring(0,1).toUpperCase() + muscle.substring(1));
+        exerciseType.setText("Exercise Type: "+typeDisplay.substring(0,1).toUpperCase() + typeDisplay.substring(1));
+
+        if(difficulty.equals("beginner")){
+            easyDumbell.setAlpha(1.0F);
+            mediumDumbell.setAlpha(0.25F);
+            hardDumbell.setAlpha(0.25F);
+        }
+        if(difficulty.equals("intermediate")){
+            easyDumbell.setAlpha(1.0F);
+            mediumDumbell.setAlpha(1.0F);
+            hardDumbell.setAlpha(0.25F);
+        }
+        if(difficulty.equals("extreme")){
+            easyDumbell.setAlpha(1.0F);
+            mediumDumbell.setAlpha(1.0F);
+            hardDumbell.setAlpha(1.0F);
+        }
+
 
         clickBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SpecificExercises.class);
-                intent.putExtra("exercise", exerciseName);
+                intent.putExtra("name", name);
+                intent.putExtra("type", type);
+                intent.putExtra("muscle", muscle);
+                intent.putExtra("equipment", equipment);
+                intent.putExtra("difficulty", difficulty);
+                intent.putExtra("instructions", instructions);
                 startActivity(intent);
             }
         });
