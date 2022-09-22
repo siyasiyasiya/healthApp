@@ -22,12 +22,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 public class HomePage extends AppCompatActivity {
     String workoutDay;
     String name;
     String[] muscleGroups = {"Legs", "Arms", "Back", "Chest", "Shoulder", "Abs", "Rest", "Choice"};
-    String[][] muscles = {{"Glutes", "Quads", "Hamstrings", "Calves", "Inner Thigh", "Hip"}, {"Biceps", "Forearms", "Triceps"}, {"Traps", "Middle Back", "Lower Back", "Lats"}, {"Chest"}, {"Traps", "Neck"}, {"Abs"}};
+    String[][] muscles = {{"Glutes", "Quadriceps", "Hamstrings", "Calves", "Adductors", "Abductors"}, {"Biceps", "Forearms", "Triceps"}, {"Traps", "Middle Back", "Lower Back", "Lats"}, {"Chest"}, {"Traps", "Neck"}, {"Abs"}};
     String[] weekDays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
     String[] weekDaysAbbr = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
     String[] fitnessFactArr =  {"You use 200 muscles to take a single step",
@@ -58,6 +59,8 @@ public class HomePage extends AppCompatActivity {
                                 "Weight training reduces your risk of injuries",
                                 "Stretching allows you to recharge and refresh the blood flow throughout your body",
                                 "Stretching can also improve your body posture"};
+    ArrayList<String> todayMuscles = new ArrayList<>();
+    ArrayList<String> todayMuscleGroupsButtons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +94,52 @@ public class HomePage extends AppCompatActivity {
         TextView greeting = findViewById(R.id.greetingLbl);
         String text = "<string name=\"greeting\">Hi <font color='#F9245B'>" + name +"</font>!</string>";
         greeting.setText(Html.fromHtml(text));
+
+
+        findViewById(R.id.excerciseGroup1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomePage.this, todayMuscleGroupsButtons.get(0), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomePage.this, MainExcercises.class);
+                intent.putExtra("muscle",todayMuscleGroupsButtons.get(0).toLowerCase(Locale.ROOT));
+                intent.putExtra("type", "all");
+                intent.putExtra("level", "all");
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.excerciseGroup2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomePage.this, todayMuscleGroupsButtons.get(1), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomePage.this, MainExcercises.class);
+                intent.putExtra("muscle",todayMuscleGroupsButtons.get(1).toLowerCase(Locale.ROOT));
+                intent.putExtra("type", "all");
+                intent.putExtra("level", "all");
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.excerciseGroup3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomePage.this, todayMuscleGroupsButtons.get(2), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomePage.this, MainExcercises.class);
+                intent.putExtra("muscle",todayMuscleGroupsButtons.get(2).toLowerCase(Locale.ROOT));
+                intent.putExtra("type", "all");
+                intent.putExtra("level", "all");
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.excerciseGroup4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomePage.this, todayMuscleGroupsButtons.get(3), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomePage.this, MainExcercises.class);
+                intent.putExtra("muscle",todayMuscleGroupsButtons.get(3).toLowerCase(Locale.ROOT));
+                intent.putExtra("type", "all");
+                intent.putExtra("level", "all");
+                startActivity(intent);
+            }
+        });
     }
 
     @SuppressLint("SetTextI18n")
@@ -100,7 +149,6 @@ public class HomePage extends AppCompatActivity {
         Button group3 = findViewById(R.id.excerciseGroup3);
         Button group4 = findViewById(R.id.excerciseGroup4);
         Button[] groups = {group1, group2, group3, group4};
-        ArrayList<String> todayMuscles = new ArrayList<>();
 
         //if the user chose a muscle group for the date
         for(int i = 0; i < muscleGroups.length - 2; i++){
@@ -122,6 +170,14 @@ public class HomePage extends AppCompatActivity {
         if(todayMuscles.size() <= 4){
             for (int i = 0; i < todayMuscles.size(); i++) {
                 groups[i].setText(todayMuscles.get(i) + " Exercises");
+                String muscleString = todayMuscles.get(i);
+                if(muscleString.equals("Middle Back"))
+                    muscleString = "middle_back";
+                if(muscleString.equals("Lower Back"))
+                    muscleString = "lower_back";
+                if(muscleString.equals("Abs"))
+                    muscleString = "abdominals";
+                todayMuscleGroupsButtons.add(muscleString.toLowerCase(Locale.ROOT));
             }
             for (int i = 3; i >= todayMuscles.size(); i--) {
                 groups[i].setVisibility(View.INVISIBLE);
@@ -129,6 +185,14 @@ public class HomePage extends AppCompatActivity {
         } else {
             for (int i = 0; i < 4; i++) {
                 String muscle = todayMuscles.get(randomNumber(0, todayMuscles.size()-1));
+                String muscleString = muscle;
+                if(muscle.equals("Middle Back"))
+                    muscleString = "middle_back";
+                if(muscle.equals("Lower Back"))
+                    muscleString = "lower_back";
+                if(muscleString.equals("Abs"))
+                    muscleString = "abdominals";
+                todayMuscleGroupsButtons.add(muscleString.toLowerCase(Locale.ROOT));
                 todayMuscles.remove(muscle);
                 groups[i].setText(muscle + " Exercises");
             }

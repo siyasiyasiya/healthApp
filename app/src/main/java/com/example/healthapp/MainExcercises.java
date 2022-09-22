@@ -42,16 +42,17 @@ import java.util.Objects;
 
 public class MainExcercises extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String[] workoutTypes = {"All", "Cardio", "Plyometrics", "Strength", "Powerlifting", "Stretching", "Olympic Weightlifting"};
-    private static final String[] muscleGroups = {"All", "Glutes", "Quads", "Hamstrings", "Calves", "Abductors", "Adductors","Biceps", "Forearms", "Triceps","Traps", "Middle Back", "Lower Back", "Lats", "Chest", "Neck","Abdominals"};
+    private static final String[] muscleGroups = {"All", "Glutes", "Quads", "Hamstrings", "Calves", "Adductors", "Abductors","Biceps", "Forearms", "Triceps", "Middle Back", "Lower Back", "Lats","Chest", "Traps", "Neck","Abdominals"};
     private static final String[] levels = {"All", "Beginner", "Intermediate", "Expert"};
 
     Spinner muscleSelect, typeSelect, levelSelect;
 
     String muscle = "all", type = "all", level = "all";
 
-    ArrayList<ArrayList<String>> exercises=new ArrayList<>();
-
     public static FragmentManager fragmentManager;
+
+    public boolean loaded = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +64,6 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
             muscle = extras.getString("muscle");
             type = extras.getString("type");
             level = extras.getString("level");
-        }
-
-        for (int i = 0; i < 10; i++) {
-            exercises.add(new ArrayList<>());
         }
 
         muscleSelect = (Spinner)findViewById(R.id.muscleSpinner);
@@ -90,9 +87,11 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
         levelSelect.setAdapter(adapter3);
         levelSelect.setOnItemSelectedListener(this);
 
-
 //        initialize exercise filters if already picked
         switch (level) {
+            case "all":
+                levelSelect.setSelection(0);
+                break;
             case "beginner":
                 levelSelect.setSelection(1);
                 break;
@@ -105,77 +104,85 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
         }
 
         switch (muscle) {
+            case "all":
+                muscleSelect.setSelection(0);
+                break;
             case "glutes":
-                levelSelect.setSelection(1);
+                muscleSelect.setSelection(1);
                 break;
             case "quadriceps":
-                levelSelect.setSelection(2);
+                muscleSelect.setSelection(2);
                 break;
             case "hamstrings":
-                levelSelect.setSelection(3);
+                muscleSelect.setSelection(3);
                 break;
             case "calves":
-                levelSelect.setSelection(4);
-                break;
-            case "abductors":
-                levelSelect.setSelection(5);
+                muscleSelect.setSelection(4);
                 break;
             case "adductors":
-                levelSelect.setSelection(6);
+                muscleSelect.setSelection(5);
+                break;
+            case "abductors":
+                muscleSelect.setSelection(6);
                 break;
             case "biceps":
-                levelSelect.setSelection(7);
+                muscleSelect.setSelection(7);
                 break;
             case "forearms":
-                levelSelect.setSelection(8);
+                muscleSelect.setSelection(8);
                 break;
             case "triceps":
-                levelSelect.setSelection(9);
-                break;
-            case "traps":
-                levelSelect.setSelection(10);
+                muscleSelect.setSelection(9);
                 break;
             case "middle_back":
-                levelSelect.setSelection(11);
+                muscleSelect.setSelection(10);
                 break;
             case "lower_back":
-                levelSelect.setSelection(12);
+                muscleSelect.setSelection(11);
                 break;
             case "lats":
-                levelSelect.setSelection(13);
+                muscleSelect.setSelection(12);
                 break;
             case "chest":
-                levelSelect.setSelection(14);
+                muscleSelect.setSelection(13);
+                break;
+            case "traps":
+                muscleSelect.setSelection(14);
                 break;
             case "neck":
-                levelSelect.setSelection(15);
+                muscleSelect.setSelection(15);
                 break;
             case "abdominals":
-                levelSelect.setSelection(16);
+                muscleSelect.setSelection(16);
                 break;
         }
 
-        switch (muscle) {
+        switch (type) {
+            case "all":
+                typeSelect.setSelection(0);
+                break;
             case "cardio":
-                levelSelect.setSelection(1);
+                typeSelect.setSelection(1);
                 break;
             case "plyometrics":
-                levelSelect.setSelection(2);
+                typeSelect.setSelection(2);
                 break;
             case "strength":
-                levelSelect.setSelection(3);
+                typeSelect.setSelection(3);
                 break;
             case "powerlifting":
-                levelSelect.setSelection(4);
+                typeSelect.setSelection(4);
                 break;
             case "stretching":
-                levelSelect.setSelection(5);
+                typeSelect.setSelection(5);
                 break;
             case "olympic_weightlifting":
-                levelSelect.setSelection(6);
+                typeSelect.setSelection(6);
                 break;
         }
 
+        LinearLayout ll = (LinearLayout) findViewById(R.id.exerciseTable);
+        ll.removeAllViews();
         callApi();
     }
 
@@ -212,40 +219,40 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                 case 4:
                     muscle = "calves";
                     break;
+                case 5:
+                    muscle = "adductors";
+                    break;
                 case 6:
                     muscle = "abductors";
                     break;
                 case 7:
-                    muscle = "adductors";
-                    break;
-                case 8:
                     muscle = "biceps";
                     break;
-                case 9:
+                case 8:
                     muscle = "forearms";
                     break;
-                case 10:
+                case 9:
                     muscle = "triceps";
                     break;
-                case 11:
-                    muscle = "traps";
-                    break;
-                case 12:
+                case 10:
                     muscle = "middle_back";
                     break;
-                case 13:
+                case 11:
                     muscle = "lower_back";
                     break;
-                case 14:
+                case 12:
                     muscle = "lats";
                     break;
-                case 15:
+                case 13:
                     muscle = "chest";
                     break;
-                case 16:
+                case 14:
+                    muscle = "traps";
+                    break;
+                case 15:
                     muscle = "neck";
                     break;
-                case 17:
+                case 16:
                     muscle = "abdominals";
                     break;
             }
@@ -294,10 +301,12 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                     break;
             }
         }
-//        empty layout with views every time a filter is changed
-        LinearLayout ll = (LinearLayout) findViewById(R.id.exerciseTable);
-        ll.removeAllViews();
-        callApi();
+        if(loaded) {
+////        empty layout with views every time a filter is changed
+            LinearLayout ll = (LinearLayout) findViewById(R.id.exerciseTable);
+            ll.removeAllViews();
+            callApi();
+        }
     }
 
     @Override
@@ -346,26 +355,28 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
 //                            send data to fragment
                                 fragmentManager = getSupportFragmentManager();
                                 if(findViewById(R.id.exerciseTable)!=null){
-                                    for (int i = 0; i < response.length(); i++) {
-                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                    ExerciseDisplayFragment exerciseDisplayFragment = new ExerciseDisplayFragment();
-                                    Bundle b = new Bundle();
-                                    b.putString("name", response.getJSONObject(i).getString("name"));
-                                    b.putString("type", response.getJSONObject(i).getString("type"));
-                                    b.putString("muscle", response.getJSONObject(i).getString("muscle"));
-                                    b.putString("equipment", response.getJSONObject(i).getString("equipment"));
-                                    b.putString("difficulty", response.getJSONObject(i).getString("difficulty"));
-                                    b.putString("instructions", response.getJSONObject(i).getString("instructions"));
-                                        b.putString("muscle", muscle);
-                                        b.putString("type",type);
-                                        b.putString("level", level);
-                                    exerciseDisplayFragment.setArguments(b);
-                                    fragmentTransaction.add(R.id.exerciseTable, exerciseDisplayFragment).commit();
-                                }
+                                    loaded= true;
                                     if(response.length()==0){
                                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                                         NoExercisesFound noExerciseFoundFragment = new NoExercisesFound();
                                         fragmentTransaction.add(R.id.exerciseTable, noExerciseFoundFragment).commit();
+                                    }else{
+                                        for (int i = 0; i < response.length(); i++) {
+                                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                            ExerciseDisplayFragment exerciseDisplayFragment = new ExerciseDisplayFragment();
+                                            Bundle b = new Bundle();
+                                            b.putString("name", response.getJSONObject(i).getString("name"));
+                                            b.putString("type", response.getJSONObject(i).getString("type"));
+                                            b.putString("muscle", response.getJSONObject(i).getString("muscle"));
+                                            b.putString("equipment", response.getJSONObject(i).getString("equipment"));
+                                            b.putString("difficulty", response.getJSONObject(i).getString("difficulty"));
+                                            b.putString("instructions", response.getJSONObject(i).getString("instructions"));
+                                            b.putString("muscle", muscle);
+                                            b.putString("type",type);
+                                            b.putString("level", level);
+                                            exerciseDisplayFragment.setArguments(b);
+                                            fragmentTransaction.add(R.id.exerciseTable, exerciseDisplayFragment).commit();
+                                        }
                                     }
                                     findViewById(R.id.loadingPanel).setVisibility(View.INVISIBLE);
                             }

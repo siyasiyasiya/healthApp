@@ -52,8 +52,8 @@
         app:layout_constraintVertical_bias="0.139" />
 
     <ScrollView
-        android:layout_width="603dp"
-        android:layout_height="640dp"
+        android:layout_width="605dp"
+        android:layout_height="625dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
