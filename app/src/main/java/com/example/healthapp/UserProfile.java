@@ -98,6 +98,9 @@ public class UserProfile extends AppCompatActivity {
     public void navExercises(View v){
         startActivity(new Intent(UserProfile.this, MainExcercises.class));
     }
+    public void navCalendar(View v){
+        startActivity(new Intent(UserProfile.this, CalendarLog.class));
+    }
 
     public void loadData(){
         FileInputStream fis = null;

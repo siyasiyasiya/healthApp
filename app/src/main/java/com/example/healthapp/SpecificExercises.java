@@ -56,17 +56,20 @@ public class SpecificExercises extends AppCompatActivity {
         //        format and display exercise data into views
         String typeDisplay = type;
         String muscleDisplay = muscle;
+        String equipDisplay = equipment;
         if(type.contains("_")){
             typeDisplay = type.substring(0, type.indexOf("_"))+" "+type.substring(type.indexOf("_")+1, type.indexOf("_")+2).toUpperCase()+type.substring(type.indexOf("_")+2);
         }
         if(muscle.contains("_")){
             muscleDisplay = muscle.substring(0, muscle.indexOf("_"))+" "+muscle.substring(muscle.indexOf("_")+1, muscle.indexOf("_")+2).toUpperCase()+muscle.substring(muscle.indexOf("_")+2);
         }
+        if(equipment.contains("_")){
+            equipDisplay = equipment.substring(0, equipment.indexOf("_"))+" "+equipment.substring(equipment.indexOf("_")+1, equipment.indexOf("_")+2).toUpperCase()+equipment.substring(equipment.indexOf("_")+2);
+        }
 
         exerciseMuscle.setText("Target Muscle: "+muscleDisplay.substring(0,1).toUpperCase() + muscleDisplay.substring(1));
         exerciseType.setText("Exercise Type: "+typeDisplay.substring(0,1).toUpperCase() + typeDisplay.substring(1));
-
-        exerciseEquipment.setText("Equipment: "+equipment.substring(0,1).toUpperCase() + equipment.substring(1));
+        exerciseEquipment.setText("Equipment: "+equipDisplay.substring(0,1).toUpperCase() + equipDisplay.substring(1));
         exerciseInstructions.setText(instructions);
 
         if(difficulty.equals("beginner")){
@@ -100,5 +103,9 @@ public class SpecificExercises extends AppCompatActivity {
 
     public void navProfile(View v){
         startActivity(new Intent(SpecificExercises.this, UserProfile.class));
+    }
+
+    public void navCalendar(View v){
+        startActivity(new Intent(SpecificExercises.this, CalendarLog.class));
     }
 }

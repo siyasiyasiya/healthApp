@@ -9,15 +9,18 @@
         <entry key="app/src/main/res/drawable/pink_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/spinner_background.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_calendar_log.xml" value="0.1668611609417459" />
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.542057800292969" />
-        <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="0.20342712402343716" />
+        <entry key="app/src/main/res/layout/activity_get_user_data.xml" value="0.3815628051757809" />
         <entry key="app/src/main/res/layout/activity_get_user_preferences.xml" value="0.6911727905273437" />
         <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.340532120414402" />
-        <entry key="app/src/main/res/layout/activity_main_excercises.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main_excercises.xml" value="0.38584289550781253" />
         <entry key="app/src/main/res/layout/activity_new_user_landing.xml" value="0.31989593505859376" />
-        <entry key="app/src/main/res/layout/activity_specific_exercises.xml" value="0.4606857299804688" />
+        <entry key="app/src/main/res/layout/activity_specific_exercises.xml" value="0.4386138916015625" />
         <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.4744242613076435" />
-        <entry key="app/src/main/res/layout/fragment_exercise_display.xml" value="0.5882955463115984" />
+        <entry key="app/src/main/res/layout/calendar_day_layout.xml" value="0.30978260869565216" />
+        <entry key="app/src/main/res/layout/fragment_exercise_display.xml" value="0.3154815673828125" />
+        <entry key="app/src/main/res/layout/fragment_no_exercises_found.xml" value="0.6462144934612775" />
       </map>
     </option>
   </component>
