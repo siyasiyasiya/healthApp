@@ -99,7 +99,6 @@ public class HomePage extends AppCompatActivity {
         findViewById(R.id.excerciseGroup1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomePage.this, todayMuscleGroupsButtons.get(0), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(HomePage.this, MainExcercises.class);
                 intent.putExtra("muscle",todayMuscleGroupsButtons.get(0).toLowerCase(Locale.ROOT));
                 intent.putExtra("type", "all");
@@ -110,7 +109,6 @@ public class HomePage extends AppCompatActivity {
         findViewById(R.id.excerciseGroup2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomePage.this, todayMuscleGroupsButtons.get(1), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(HomePage.this, MainExcercises.class);
                 intent.putExtra("muscle",todayMuscleGroupsButtons.get(1).toLowerCase(Locale.ROOT));
                 intent.putExtra("type", "all");
@@ -121,7 +119,6 @@ public class HomePage extends AppCompatActivity {
         findViewById(R.id.excerciseGroup3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomePage.this, todayMuscleGroupsButtons.get(2), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(HomePage.this, MainExcercises.class);
                 intent.putExtra("muscle",todayMuscleGroupsButtons.get(2).toLowerCase(Locale.ROOT));
                 intent.putExtra("type", "all");
