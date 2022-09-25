@@ -25,16 +25,16 @@
 
     <CalendarView
         android:id="@+id/calendar"
-        android:layout_width="548dp"
-        android:layout_height="355dp"
-        android:dateTextAppearance="@android:style/TextAppearance.Large"
+        android:layout_width="565dp"
+        android:layout_height="323dp"
+        android:dateTextAppearance="@android:style/TextAppearance.Holo.Large"
         android:weekDayTextAppearance="@android:style/TextAppearance.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/appName2"
-        app:layout_constraintVertical_bias="0.185" />
+        app:layout_constraintVertical_bias="0.195" />
 
     <ImageView
         android:id="@+id/widgetBar"
