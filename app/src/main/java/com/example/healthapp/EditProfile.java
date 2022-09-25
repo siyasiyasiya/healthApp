@@ -304,7 +304,6 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
 
                     if(viewDroppedAt == bottomLayer){
                         droppedFrom.removeView(textDropped);
-                        viewDroppedAt.addView(textDropped);
                         workoutPrefsErr.setText("");
                     }
             }
@@ -334,11 +333,48 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
             }else if(weekDays.get(index).size()>2 && !init) {
                 workoutPrefsErr.setText("You may not choose to work more than two muscle groups per day.");
             }else{
-                if (!init)
-                    weekDays.get(index).add(String.valueOf(textDropped.getText()));
-                droppedFrom.removeView(textDropped);
-                viewDroppedAt.addView(textDropped);
-                workoutPrefsErr.setText("");
+                if (!init){
+                    for (int i = 0; i < weekDays.get(index).size(); i++) {
+                        if(weekDays.get(index).get(i).equals(textDropped.getText()))
+                            works = false;
+                    }
+
+                    if (works) {
+                        weekDays.get(index).add(String.valueOf(textDropped.getText()));
+                        if (droppedFrom == bottomLayer) {
+                            TextView v = new TextView(this);
+                            v.setText(textDropped.getText());
+                            v.setTextSize(16);
+                            v.setPadding(textDropped.getPaddingLeft(), textDropped.getPaddingTop(), textDropped.getPaddingRight(), textDropped.getPaddingBottom());
+                            v.setBackground(textDropped.getBackground());
+                            v.setTextColor(textDropped.getTextColors());
+                            v.setOnLongClickListener(new LongClickListener());
+                            ViewGroup.LayoutParams layoutParams = (ViewGroup.LayoutParams) textDropped.getLayoutParams();
+                            v.setLayoutParams(layoutParams);
+                            v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                            viewDroppedAt.addView(v);
+                        }else{
+                            droppedFrom.removeView(textDropped);
+                            viewDroppedAt.addView(textDropped);
+                        }
+                        workoutPrefsErr.setText("");
+                    }else{
+                        workoutPrefsErr.setText("You may not choose the same muscle group twice on the same day.");
+                    }
+                }else {
+                    TextView v = new TextView(this);
+                    v.setText(textDropped.getText());
+                    v.setTextSize(16);
+                    v.setPadding(textDropped.getPaddingLeft(), textDropped.getPaddingTop(), textDropped.getPaddingRight(), textDropped.getPaddingBottom());
+                    v.setBackground(textDropped.getBackground());
+                    v.setTextColor(textDropped.getTextColors());
+                    v.setOnLongClickListener(new LongClickListener());
+                    ViewGroup.LayoutParams layoutParams = (ViewGroup.LayoutParams) textDropped.getLayoutParams();
+                    v.setLayoutParams(layoutParams);
+                    v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                    viewDroppedAt.addView(v);
+                    workoutPrefsErr.setText("");
+                }
             }
         }else{
             workoutPrefsErr.setText("You may not combine a muscle group focus day with a rest or choice day");

@@ -17,8 +17,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
+import org.xmlpull.v1.XmlPullParser;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -31,6 +35,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 public class GetUserPreferences extends AppCompatActivity{
     private String fitnessGoal = "";
@@ -45,6 +50,8 @@ public class GetUserPreferences extends AppCompatActivity{
     int inches =0;
     int weight = 0;
     ArrayList<ArrayList<String>> weekDays = new ArrayList<>();
+
+    TextView[] viewsList;
 
     TextView workoutPrefsErr;
 
@@ -98,6 +105,8 @@ public class GetUserPreferences extends AppCompatActivity{
 
         TextView dragAbbs = (TextView) findViewById(R.id.dragAbbs);
         dragAbbs.setOnLongClickListener(new LongClickListener());
+
+        viewsList= new TextView[]{dragLeg, dragArms, dragBack, dragChest, dragSho, dragAbbs, dragRest, dragChoice};
 
          topLayerMon = (LinearLayout) findViewById(R.id.mon);
          topLayerTues = (LinearLayout) findViewById(R.id.tues);
@@ -294,7 +303,6 @@ public class GetUserPreferences extends AppCompatActivity{
 
                     if(viewDroppedAt == bottomLayer){
                         droppedFrom.removeView(textDropped);
-                        viewDroppedAt.addView(textDropped);
                         workoutPrefsErr.setText("");
                     }
                 }
@@ -320,13 +328,36 @@ public class GetUserPreferences extends AppCompatActivity{
             if (weekDays.get(index).size()>2){
                 workoutPrefsErr.setText("You may not choose to work more than two muscle groups per day.");
             }else {
-                weekDays.get(index).add(String.valueOf(textDropped.getText()));
-                droppedFrom.removeView(textDropped);
-                viewDroppedAt.addView(textDropped);
-                workoutPrefsErr.setText("");
+                for (int i = 0; i < weekDays.get(index).size(); i++) {
+                    if(weekDays.get(index).get(i).equals(textDropped.getText()))
+                        works = false;
+                }
+
+                if (works) {
+                    weekDays.get(index).add(String.valueOf(textDropped.getText()));
+                    if (droppedFrom == bottomLayer) {
+                        TextView v = new TextView(this);
+                        v.setText(textDropped.getText());
+                        v.setTextSize(16);
+                        v.setPadding(textDropped.getPaddingLeft(), textDropped.getPaddingTop(), textDropped.getPaddingRight(), textDropped.getPaddingBottom());
+                        v.setBackground(textDropped.getBackground());
+                        v.setTextColor(textDropped.getTextColors());
+                        v.setOnLongClickListener(new LongClickListener());
+                        ViewGroup.LayoutParams layoutParams = (ViewGroup.LayoutParams) textDropped.getLayoutParams();
+                        v.setLayoutParams(layoutParams);
+                        v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                        viewDroppedAt.addView(v);
+                    }else{
+                        droppedFrom.removeView(textDropped);
+                        viewDroppedAt.addView(textDropped);
+                    }
+                    workoutPrefsErr.setText("");
+                }else{
+                    workoutPrefsErr.setText("You may not choose the same muscle group twice on the same day.");
+                }
             }
         }else{
-            workoutPrefsErr.setText("You may not combine a muscle group focus day with a rest or choice day");
+            workoutPrefsErr.setText("You may not combine a muscle group focus day with a rest or choice day.");
         }
     }
 
@@ -376,8 +407,6 @@ public class GetUserPreferences extends AppCompatActivity{
                     br.append(weekDays.get(i).get(j));
                 }
             }
-            br.newLine();
-            br.append("end");
             br.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
