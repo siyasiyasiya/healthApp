@@ -46,9 +46,9 @@ public class SpecificExercises extends AppCompatActivity {
             difficulty = extras.getString("difficulty");
             instructions = extras.getString("instructions");
 
-            muscleInp = extras.getString("muscle");
-            typeInp = extras.getString("type");
-            levelInp = extras.getString("level");
+            muscleInp = extras.getString("muscle2");
+            typeInp = extras.getString("type2");
+            levelInp = extras.getString("level2");
         }
 
         exerciseName.setText(name);
@@ -82,7 +82,7 @@ public class SpecificExercises extends AppCompatActivity {
             mediumDumbell.setAlpha(1.0F);
             hardDumbell.setAlpha(0.25F);
         }
-        if(difficulty.equals("extreme")){
+        if(difficulty.equals("expert")){
             easyDumbell.setAlpha(1.0F);
             mediumDumbell.setAlpha(1.0F);
             hardDumbell.setAlpha(1.0F);

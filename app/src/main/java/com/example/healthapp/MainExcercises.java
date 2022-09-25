@@ -371,9 +371,9 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
                                             b.putString("equipment", response.getJSONObject(i).getString("equipment"));
                                             b.putString("difficulty", response.getJSONObject(i).getString("difficulty"));
                                             b.putString("instructions", response.getJSONObject(i).getString("instructions"));
-                                            b.putString("muscle", muscle);
-                                            b.putString("type",type);
-                                            b.putString("level", level);
+                                            b.putString("muscle2", muscle);
+                                            b.putString("type2",type);
+                                            b.putString("level2", level);
                                             exerciseDisplayFragment.setArguments(b);
                                             fragmentTransaction.add(R.id.exerciseTable, exerciseDisplayFragment).commit();
                                         }

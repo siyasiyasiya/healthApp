@@ -94,9 +94,9 @@ public class ExerciseDisplayFragment extends Fragment {
         difficulty = bundle.getString("difficulty");
         instructions = bundle.getString("instructions");
 
-        muscleInp = bundle.getString("muscle");
-        typeInp = bundle.getString("type");
-        lvlInp = bundle.getString("level");
+        muscleInp = bundle.getString("muscle2");
+        typeInp = bundle.getString("type2");
+        lvlInp = bundle.getString("level2");
 
 
 //        format and display exercise data into views
@@ -141,9 +141,9 @@ public class ExerciseDisplayFragment extends Fragment {
                 intent.putExtra("difficulty", difficulty);
                 intent.putExtra("instructions", instructions);
 
-                intent.putExtra("muscle", muscleInp);
-                intent.putExtra("type", typeInp);
-                intent.putExtra("level", lvlInp);
+                intent.putExtra("muscle2", muscleInp);
+                intent.putExtra("type2", typeInp);
+                intent.putExtra("level2", lvlInp);
                 startActivity(intent);
             }
         });
