@@ -266,12 +266,16 @@ public class HomePage extends AppCompatActivity {
     public void navProfile(View v){
         startActivity(new Intent(HomePage.this, UserProfile.class));
     }
+
     public void navExercises(View v){
         startActivity(new Intent(HomePage.this, MainExcercises.class));
     }
 
-    public void navCalendar(View v){
-        startActivity(new Intent(HomePage.this, CalendarLog.class));
+    public void navLogWorkout(View v){
+        startActivity(new Intent(HomePage.this, LogWorkout.class));
     }
 
+    public void navLog(View v){
+        startActivity(new Intent(HomePage.this, CalendarLog.class));
+    }
 }

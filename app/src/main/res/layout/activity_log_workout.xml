@@ -350,7 +350,7 @@
         app:srcCompat="@drawable/plusbutton" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/exerciseScrollView"
         android:layout_width="495dp"
         android:layout_height="261dp"
         android:layout_marginBottom="140dp"
@@ -371,7 +371,7 @@
         android:layout_height="52dp"
         android:layout_marginTop="10dp"
         android:background="@color/red_pink"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintBottom_toTopOf="@+id/exerciseScrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateErr2"

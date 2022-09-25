@@ -226,7 +226,7 @@
         android:id="@+id/reportIcon"
         android:layout_width="37dp"
         android:layout_height="39dp"
-        android:onClick="navCalendar"
+        android:onClick="navLog"
         app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.71"
@@ -279,6 +279,7 @@
 
     <ImageView
         android:id="@+id/imageView3"
+        android:onClick="navLogWorkout"
         android:layout_width="59dp"
         android:layout_height="67dp"
         app:layout_constraintBottom_toBottomOf="@+id/widgetBar"

@@ -26,4 +26,16 @@ public class CalendarLog extends AppCompatActivity {
     public void navProfile(View v){
         startActivity(new Intent(CalendarLog.this, UserProfile.class));
     }
+
+    public void navExercises(View v){
+        startActivity(new Intent(CalendarLog.this, MainExcercises.class));
+    }
+
+    public void navLogWorkout(View v){
+        startActivity(new Intent(CalendarLog.this, LogWorkout.class));
+    }
+
+    public void navHome(View v){
+        startActivity(new Intent(CalendarLog.this, HomePage.class));
+    }
 }

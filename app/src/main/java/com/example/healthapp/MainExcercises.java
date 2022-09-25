@@ -190,8 +190,12 @@ public class MainExcercises extends AppCompatActivity implements AdapterView.OnI
         startActivity(new Intent(MainExcercises.this, HomePage.class));
     }
 
-    public void navCalendar(View v){
+    public void navLog(View v){
         startActivity(new Intent(MainExcercises.this, CalendarLog.class));
+    }
+
+    public void navLogWorkout(View v){
+        startActivity(new Intent(MainExcercises.this, LogWorkout.class));
     }
 
     public void navProfile(View v){

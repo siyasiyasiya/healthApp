@@ -95,11 +95,15 @@ public class UserProfile extends AppCompatActivity {
     public void navHome(View v){
         startActivity(new Intent(UserProfile.this, HomePage.class));
     }
+
     public void navExercises(View v){
         startActivity(new Intent(UserProfile.this, MainExcercises.class));
     }
-    public void navCalendar(View v){
+    public void navLog(View v){
         startActivity(new Intent(UserProfile.this, CalendarLog.class));
+    }
+    public void navLogWorkout(View v){
+        startActivity(new Intent(UserProfile.this, LogWorkout.class));
     }
 
     public void loadData(){
