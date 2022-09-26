@@ -28,6 +28,7 @@ public class DBHelper extends SQLiteOpenHelper{
         contentValues.put("minutes",minutes);
         contentValues.put("rating",rating);
         contentValues.put("exerciseList",exerciseList);
+//        contentValues.put("day",day);
         long result = DB.insert("WorkoutDay", null, contentValues);
         if (result == -1){
             return false;
@@ -42,6 +43,7 @@ public class DBHelper extends SQLiteOpenHelper{
         contentValues.put("minutes",minutes);
         contentValues.put("exerciseList",exerciseList);
         contentValues.put("rating",rating);
+//        contentValues.put("day",day);
 
         Cursor cursor = DB.rawQuery("Select * from UserWorkoutLog where date = ?",new String[]{date});
         if (cursor.getCount()>0){

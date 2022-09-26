@@ -34,7 +34,7 @@
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/appName2"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintVertical_bias="0.239" />
 
     <ImageView
         android:id="@+id/widgetBar"
@@ -170,5 +170,110 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.988"
         app:srcCompat="@drawable/plusbutton" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Workout Log"
+        android:textColor="@color/red_pink"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/widgetBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendar"
+        app:layout_constraintVertical_bias="0.08" />
+
+    <TextView
+        android:id="@+id/durationLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration: 10 Minutes"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/widgetBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendar"
+        app:layout_constraintVertical_bias="0.427" />
+
+    <TextView
+        android:id="@+id/exerciseListLbl"
+        android:layout_width="506dp"
+        android:layout_height="154dp"
+        android:text="Exercises: "
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/widgetBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendar"
+        app:layout_constraintVertical_bias="0.881" />
+
+    <ImageView
+        android:id="@+id/star1"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.614"
+        app:srcCompat="@drawable/gold_star" />
+
+    <ImageView
+        android:id="@+id/star2"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.614"
+        app:srcCompat="@drawable/gold_star" />
+
+    <ImageView
+        android:id="@+id/star3"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.614"
+        app:srcCompat="@drawable/gold_star" />
+
+    <ImageView
+        android:id="@+id/star4"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.614"
+        app:srcCompat="@drawable/gold_star" />
+
+    <ImageView
+        android:id="@+id/star5"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.614"
+        app:srcCompat="@drawable/gold_star" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
