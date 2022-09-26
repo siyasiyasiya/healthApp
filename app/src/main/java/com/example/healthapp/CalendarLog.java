@@ -18,9 +18,9 @@ public class CalendarLog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_log);
 
-        float scalingFactor = 2f; // scale down to half the size
-        calendar.setScaleX(scalingFactor);
-        calendar.setScaleY(scalingFactor);
+//        float scalingFactor = 2f; // scale down to half the size
+//        calendar.setScaleX(scalingFactor);
+//        calendar.setScaleY(scalingFactor);
     }
 
     public void navProfile(View v){

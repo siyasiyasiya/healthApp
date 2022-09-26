@@ -105,7 +105,11 @@ public class SpecificExercises extends AppCompatActivity {
         startActivity(new Intent(SpecificExercises.this, UserProfile.class));
     }
 
-    public void navCalendar(View v){
+    public void navLog(View v){
         startActivity(new Intent(SpecificExercises.this, CalendarLog.class));
+    }
+
+    public void navLogWorkout(View v){
+        startActivity(new Intent(SpecificExercises.this, LogWorkout.class));
     }
 }

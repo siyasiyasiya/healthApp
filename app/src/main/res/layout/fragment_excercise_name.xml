@@ -7,7 +7,7 @@
     android:layout_margin="25dp"
     android:background="#000000"
     android:backgroundTint="#000000"
-    tools:context=".excerciseName">
+    tools:context=".ExerciseName">
 
     <!-- TODO: Update blank fragment layout -->
 
