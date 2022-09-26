@@ -78,7 +78,7 @@
         android:id="@+id/reportIcon2"
         android:layout_width="37dp"
         android:layout_height="39dp"
-        android:onClick="navCalendar"
+        android:onClick="navLog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.702"
@@ -96,7 +96,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.99" />
@@ -129,6 +129,7 @@
 
     <ImageView
         android:id="@+id/imageView4"
+        android:onClick="navLogWorkout"
         android:layout_width="59dp"
         android:layout_height="67dp"
         app:layout_constraintBottom_toBottomOf="parent"
