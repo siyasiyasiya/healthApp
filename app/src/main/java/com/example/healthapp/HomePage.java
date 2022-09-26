@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.Locale;
 
 public class HomePage extends AppCompatActivity {
-    String workoutDay;
+    public String workoutDay;
     String name;
     String[] muscleGroups = {"Legs", "Arms", "Back", "Chest", "Shoulder", "Abs", "Rest", "Choice"};
     String[][] muscles = {{"Glutes", "Quadriceps", "Hamstrings", "Calves", "Adductors", "Abductors"}, {"Biceps", "Forearms", "Triceps"}, {"Traps", "Middle Back", "Lower Back", "Lats"}, {"Chest"}, {"Traps", "Neck"}, {"Abs"}};

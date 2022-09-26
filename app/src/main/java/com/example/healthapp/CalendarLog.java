@@ -10,11 +10,11 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 public class CalendarLog extends AppCompatActivity {
-
+    String day = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         CalendarView calendar = findViewById(R.id.calendar);
-
+//        day = ((HomePage)getActivity()).workoutDay;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_log);
 
@@ -22,6 +22,7 @@ public class CalendarLog extends AppCompatActivity {
 //        calendar.setScaleX(scalingFactor);
 //        calendar.setScaleY(scalingFactor);
     }
+
 
     public void navProfile(View v){
         startActivity(new Intent(CalendarLog.this, UserProfile.class));

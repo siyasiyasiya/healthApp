@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -29,6 +30,12 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -40,8 +47,10 @@ public class LogWorkout extends AppCompatActivity {
     int month=0;
     int day=0;
     int year=0;
-    int min = 0;
+    String min;
     String selection = "";
+    int num = 0;
+    DBHelper DB;
 
     ArrayList<ImageView> stars = new ArrayList<>();
 
@@ -49,6 +58,7 @@ public class LogWorkout extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_workout);
+        DB = new DBHelper(this);
 
         //fragment example
 //        for (int i = 0; i < 10; i++) {
@@ -149,6 +159,8 @@ public class LogWorkout extends AppCompatActivity {
         for (int i = 0; i <= place; i++) {
             stars.get(i).setImageResource(R.drawable.gold_star_full);
         }
+
+        num = place+1;
     }
 
     public void submitLog(View v){
@@ -156,25 +168,62 @@ public class LogWorkout extends AppCompatActivity {
         EditText dayField = findViewById(R.id.dayField);
         EditText yearField = findViewById(R.id.yearField);
         EditText minutesField = findViewById(R.id.minLbl);
-        TextView dateErr = findViewById(R.id.dateErr);
-        TextView minErr = findViewById(R.id.minErr);
+        TextView errorLbl = findViewById(R.id.errorLbl);
+        boolean noError = true;
 
         if (monthField.length()>0 && Integer.parseInt(monthField.getText().toString()) >= 1 && Integer.parseInt(monthField.getText().toString()) <= 12)
             month = Integer.parseInt(monthField.getText().toString());
-        else
-            dateErr.setText("Please enter a valid date");
+        else {
+            errorLbl.setText("Please enter a valid date");
+            noError = false;
+        }
         if (dayField.length()>0 && Integer.parseInt(dayField.getText().toString()) >= 1 && Integer.parseInt(dayField.getText().toString()) <= 31)
             day = Integer.parseInt(dayField.getText().toString());
-        else
-            dateErr.setText("Please enter a valid date");
+        else {
+            errorLbl.setText("Please enter a valid date");
+            noError = false;
+        }
         if (yearField.length()>0)
             year = Integer.parseInt(yearField.getText().toString());
-        else
-            dateErr.setText("Please enter a valid date");
+        else {
+            errorLbl.setText("Please enter a valid date");
+            noError = false;
+        }
         if (minutesField.length()>0 && Integer.parseInt(minutesField.getText().toString()) > 0)
-            min = Integer.parseInt(yearField.getText().toString());
-        else
-            minErr.setText("Please enter the duration");
+            min = minutesField.getText().toString();
+        else{
+            errorLbl.setText("Please enter the duration");
+            noError = false;
+        }
+        if(todayWorkout.size() == 0){
+            errorLbl.setText("Please log exercises");
+            noError = false;
+        }
+        if(num == 0){
+            errorLbl.setText("Please rate your workout");
+            noError = false;
+        }
+
+        if(noError){
+            String date = month + "/" + day + "/" + year;
+            String exerciseList = "";
+            for (String x: todayWorkout) {
+                exerciseList += x;
+                exerciseList += " ";
+            }
+            String starsNum = String.valueOf(num);
+
+            exerciseList = exerciseList.substring(0, exerciseList.length() - 1);
+            System.out.println(exerciseList);
+
+            Boolean checkInsertData = DB.insertWorkoutDay(date, min, exerciseList,starsNum);
+
+            if (checkInsertData){
+                Toast.makeText(LogWorkout.this,"Entry Updated",Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(LogWorkout.this,"New Entry Not Updated",Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     public void callApi(String name) {
