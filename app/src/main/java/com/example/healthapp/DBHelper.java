@@ -45,9 +45,9 @@ public class DBHelper extends SQLiteOpenHelper{
         contentValues.put("rating",rating);
 //        contentValues.put("day",day);
 
-        Cursor cursor = DB.rawQuery("Select * from UserWorkoutLog where date = ?",new String[]{date});
+        Cursor cursor = DB.rawQuery("Select * from WorkoutDay where date = ?",new String[]{date});
         if (cursor.getCount()>0){
-            long result = DB.update("UserWorkoutLog",contentValues,"date=?",new String[] {date});
+            long result = DB.update("WorkoutDay",contentValues,"date=?",new String[] {date});
             if (result == -1){
                 return false;
             }else{
@@ -62,10 +62,10 @@ public class DBHelper extends SQLiteOpenHelper{
     public Boolean deleteData(String date){
         SQLiteDatabase DB = this.getWritableDatabase();
 
-        Cursor cursor = DB.rawQuery("Select * from UserWorkoutLog where date = ?",new String[]{date});
+        Cursor cursor = DB.rawQuery("Select * from WorkoutDay where date = ?",new String[]{date});
         if (cursor.getCount()>0){
 
-            long result = DB.delete("UserWorkoutLog","date=?",new String[] {date});
+            long result = DB.delete("WorkoutDay","date=?",new String[] {date});
             if (result == -1){
                 return false;
             }else{
@@ -77,10 +77,9 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     public Cursor getData (){
+        SQLiteDatabase DB = this.getReadableDatabase();
 
-        SQLiteDatabase DB = this.getWritableDatabase();
-
-        Cursor cursor = DB.rawQuery("Select * from UserWorkoutLog",null);
+        Cursor cursor = DB.rawQuery("Select * from WorkoutDay",null);
         return cursor;
 
     }

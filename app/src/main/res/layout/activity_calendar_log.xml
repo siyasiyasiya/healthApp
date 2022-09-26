@@ -146,7 +146,6 @@
 
     <TextView
         android:id="@+id/profileIconLbl"
-        android:onClick="navLogWorkout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PROFILE"
@@ -161,6 +160,7 @@
 
     <ImageView
         android:id="@+id/imageView3"
+        android:onClick="navLogWorkout"
         android:layout_width="59dp"
         android:layout_height="67dp"
         app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
@@ -172,7 +172,7 @@
         app:srcCompat="@drawable/plusbutton" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Workout Log"
@@ -222,10 +222,10 @@
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="@+id/widgetBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.614"
+        app:layout_constraintVertical_bias="0.621"
         app:srcCompat="@drawable/gold_star" />
 
     <ImageView
@@ -237,7 +237,7 @@
         app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.614"
+        app:layout_constraintVertical_bias="0.62"
         app:srcCompat="@drawable/gold_star" />
 
     <ImageView
@@ -249,7 +249,7 @@
         app:layout_constraintHorizontal_bias="0.264"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.614"
+        app:layout_constraintVertical_bias="0.62"
         app:srcCompat="@drawable/gold_star" />
 
     <ImageView
@@ -261,7 +261,7 @@
         app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.614"
+        app:layout_constraintVertical_bias="0.62"
         app:srcCompat="@drawable/gold_star" />
 
     <ImageView
@@ -273,7 +273,7 @@
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.614"
+        app:layout_constraintVertical_bias="0.62"
         app:srcCompat="@drawable/gold_star" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

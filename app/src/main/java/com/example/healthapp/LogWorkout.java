@@ -1,5 +1,6 @@
 package com.example.healthapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.DownloadManager;
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -209,11 +211,11 @@ public class LogWorkout extends AppCompatActivity {
             String exerciseList = "";
             for (String x: todayWorkout) {
                 exerciseList += x;
-                exerciseList += " ";
+                exerciseList += ", ";
             }
             String starsNum = String.valueOf(num);
 
-            exerciseList = exerciseList.substring(0, exerciseList.length() - 1);
+            exerciseList = exerciseList.substring(0, exerciseList.length() - 2);
             System.out.println(exerciseList);
 
             Boolean checkInsertData = DB.insertWorkoutDay(date, min, exerciseList,starsNum);
@@ -221,8 +223,26 @@ public class LogWorkout extends AppCompatActivity {
             if (checkInsertData){
                 Toast.makeText(LogWorkout.this,"Entry Updated",Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(LogWorkout.this,"New Entry Not Updated",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LogWorkout.this,"Workout Log For This Date Already Exists",Toast.LENGTH_SHORT).show();
             }
+
+//            Cursor res = DB.getData();
+//            if (res.getCount() == 0){
+//                Toast.makeText(LogWorkout.this,"No Entry Exists",Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//            StringBuffer buffer = new StringBuffer();
+//            while (res.moveToNext()){
+//                buffer.append("Date :" + res.getString(0) + "\n");
+//                buffer.append("Duration :" + res.getString(1) + "\n");
+//                buffer.append("Exercises :" + res.getString(2) + "\n\n");
+//                buffer.append("Rating :" + res.getString(3) + "\n\n");
+//
+//            }
+//            AlertDialog.Builder builder = new AlertDialog.Builder(LogWorkout.this);
+//            builder.setTitle("User Entries");
+//            builder.setMessage(buffer.toString());
+//            builder.show();
         }
     }
 
