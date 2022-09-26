@@ -129,7 +129,6 @@ public class HomePage extends AppCompatActivity {
         findViewById(R.id.excerciseGroup4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomePage.this, todayMuscleGroupsButtons.get(3), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(HomePage.this, MainExcercises.class);
                 intent.putExtra("muscle",todayMuscleGroupsButtons.get(3).toLowerCase(Locale.ROOT));
                 intent.putExtra("type", "all");
