@@ -1,12 +1,15 @@
 package com.example.healthapp;
 
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -61,15 +64,32 @@ public class ExerciseName extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_excercise_name, container, false);
-
         TextView exerciseLbl = view.findViewById(R.id.exerciseLbl);
+        ImageView img = view.findViewById(R.id.clickImage);
 
         Bundle bundle = getArguments();
-
         String name = bundle.getString("name");
-
         exerciseLbl.setText(name);
+        String image = bundle.getString("image");
 
+        if(image.equals("trash")){
+            img.setImageResource(R.drawable.trashcan);
+        } else if(image.equals("check")){
+            img.setImageResource(R.drawable.checkmark_pink);
+        } else if(image.equals("plus")){
+            img.setImageResource(R.drawable.plus_pink);
+        }
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(image.equals("plus")){
+                    ((LogWorkout)getActivity()).addExercise(name);
+                } else if (image.equals("trash")){
+                    ((LogWorkout)getActivity()).removeExercise(name);
+                }
+            }
+        });
         return view;
     }
 }

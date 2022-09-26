@@ -209,6 +209,7 @@
         android:layout_width="270dp"
         android:layout_height="70dp"
         android:backgroundTint="#F9245B"
+        android:onClick="submitLog"
         android:text="Log Workout"
         android:textSize="25sp"
         app:cornerRadius="50sp"

@@ -26,13 +26,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="478dp"
-        android:layout_height="83dp"
+        android:layout_width="400dp"
+        android:layout_height="84dp"
         android:maxWidth="400dp"
-        android:text="It looks like there are no results for your filter search. Try again with different filters."
+        android:textStyle="bold"
+        android:text="Looks like there are no results for your exercise search. Try again with a different search."
         android:textAlignment="center"
         android:textColor="@color/dark_gray"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"

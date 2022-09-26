@@ -41,6 +41,7 @@ public class LogWorkout extends AppCompatActivity {
     int day=0;
     int year=0;
     int min = 0;
+    String selection = "";
 
     ArrayList<ImageView> stars = new ArrayList<>();
 
@@ -104,6 +105,7 @@ public class LogWorkout extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
+                selection = s;
                 callApi(s);
                 return false;
             }
@@ -112,7 +114,9 @@ public class LogWorkout extends AppCompatActivity {
             public boolean onQueryTextChange(String s) {
                 if(s.length() == 0){
                     setChosen();
+                    selection = "";
                 } else {
+                    selection = s;
                     callApi(s);
                 }
                 return false;
@@ -123,6 +127,18 @@ public class LogWorkout extends AppCompatActivity {
     public void setChosen(){
         LinearLayout ll = (LinearLayout) findViewById(R.id.exerciseDisplay);
         ll.removeAllViews();
+
+        if(todayWorkout.size()>0){
+            for (int i = 0; i < todayWorkout.size(); i++) {
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                ExerciseName exerciseName = new ExerciseName();
+                Bundle b = new Bundle();
+                b.putString("name", todayWorkout.get(i));
+                b.putString("image", "trash");
+                exerciseName.setArguments(b);
+                fragmentTransaction.add(R.id.exerciseDisplay, exerciseName).commit();
+            }
+        }
     }
 
     public void colorStars(int place){
@@ -135,7 +151,7 @@ public class LogWorkout extends AppCompatActivity {
         }
     }
 
-    public void submitLog(){
+    public void submitLog(View v){
         EditText monthField = findViewById(R.id.monthField);
         EditText dayField = findViewById(R.id.dayField);
         EditText yearField = findViewById(R.id.yearField);
@@ -155,7 +171,7 @@ public class LogWorkout extends AppCompatActivity {
             year = Integer.parseInt(yearField.getText().toString());
         else
             dateErr.setText("Please enter a valid date");
-        if (minutesField.length()>0)
+        if (minutesField.length()>0 && Integer.parseInt(minutesField.getText().toString()) > 0)
             min = Integer.parseInt(yearField.getText().toString());
         else
             minErr.setText("Please enter the duration");
@@ -195,6 +211,19 @@ public class LogWorkout extends AppCompatActivity {
                                         ExerciseName exerciseName = new ExerciseName();
                                         Bundle b = new Bundle();
                                         b.putString("name", response.getJSONObject(i).getString("name"));
+
+                                        boolean has = false;
+                                        for (String x: todayWorkout) {
+                                            if(response.getJSONObject(i).getString("name").equals(x)){
+                                                has = true;
+                                            }
+                                        }
+                                        if(has){
+                                            b.putString("image", "check");
+                                        } else {
+                                            b.putString("image", "plus");
+                                        }
+
                                         System.out.println(response.getJSONObject(i).getString("name"));
                                         exerciseName.setArguments(b);
                                         fragmentTransaction.add(R.id.exerciseDisplay, exerciseName).commit();
@@ -233,6 +262,18 @@ public class LogWorkout extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(jsonObjReq);
         Log.d("TAG",  jsonObjReq.toString());
+    }
+
+    public void addExercise(String exercise){
+        todayWorkout.add(exercise);
+        callApi(selection);
+        System.out.println(todayWorkout);
+    }
+
+    public void removeExercise(String exercise){
+        todayWorkout.remove(exercise);
+        setChosen();
+        System.out.println(todayWorkout);
     }
 
     public void navProfile(View v){
