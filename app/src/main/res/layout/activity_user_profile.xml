@@ -140,7 +140,7 @@
         app:srcCompat="@drawable/plusbutton" />
 
     <TextView
-        android:id="@+id/nameLbl5"
+        android:id="@+id/tuesTxt"
         android:layout_width="127dp"
         android:layout_height="39dp"
         android:gravity="center_vertical"
@@ -155,7 +155,7 @@
         app:layout_constraintVertical_bias="0.669" />
 
     <TextView
-        android:id="@+id/nameLbl3"
+        android:id="@+id/monTxt"
         android:layout_width="127dp"
         android:layout_height="39dp"
         android:gravity="center_vertical"
@@ -170,7 +170,7 @@
         app:layout_constraintVertical_bias="0.626" />
 
     <TextView
-        android:id="@+id/nameLbl6"
+        android:id="@+id/wedTxt"
         android:layout_width="127dp"
         android:layout_height="39dp"
         android:gravity="center_vertical"
@@ -185,7 +185,7 @@
         app:layout_constraintVertical_bias="0.711" />
 
     <TextView
-        android:id="@+id/nameLbl7"
+        android:id="@+id/thursTxt"
         android:layout_width="127dp"
         android:layout_height="39dp"
         android:gravity="center_vertical"
@@ -200,7 +200,7 @@
         app:layout_constraintVertical_bias="0.752" />
 
     <TextView
-        android:id="@+id/nameLbl9"
+        android:id="@+id/satTxt"
         android:layout_width="127dp"
         android:layout_height="39dp"
         android:gravity="center_vertical"
@@ -215,7 +215,7 @@
         app:layout_constraintVertical_bias="0.835" />
 
     <TextView
-        android:id="@+id/nameLbl10"
+        android:id="@+id/sunTxt"
         android:layout_width="127dp"
         android:layout_height="39dp"
         android:gravity="center_vertical"
@@ -230,7 +230,7 @@
         app:layout_constraintVertical_bias="0.876" />
 
     <TextView
-        android:id="@+id/nameLbl8"
+        android:id="@+id/friTxt"
         android:layout_width="127dp"
         android:layout_height="39dp"
         android:gravity="center_vertical"

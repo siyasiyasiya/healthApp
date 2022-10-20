@@ -1,10 +1,14 @@
 package com.example.healthapp;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.fonts.Font;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +31,7 @@ public class UserProfile extends AppCompatActivity {
     int weight = 0;
     String fitnessGoal = "";
     ArrayList<ArrayList<String>> weekDays = new ArrayList<>();
+    String[] weekDaysAbbr = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,44 @@ public class UserProfile extends AppCompatActivity {
         TextView fridayGoal = findViewById(R.id.fridayGoal);
         TextView saturdayGoal = findViewById(R.id.saturdayGoal);
         TextView sundayGoal = findViewById(R.id.sundayGoal);
+
+        TextView monTxt = findViewById(R.id.monTxt);
+        TextView tueTxt = findViewById(R.id.tuesTxt);
+        TextView wedTxt = findViewById(R.id.wedTxt);
+        TextView thursTxt = findViewById(R.id.thursTxt);
+        TextView friTxt = findViewById(R.id.friTxt);
+        TextView satTxt = findViewById(R.id.satTxt);
+        TextView sunTxt = findViewById(R.id.sunTxt);
+
+        //Bolds today's day
+        java.util.Date ogDate = new java.util.Date();
+        String date = ogDate.toString().substring(0, 10);
+        String day = "";
+        for(int i = 0; i < weekDaysAbbr.length; i++){
+            if(date.contains(weekDaysAbbr[i])){
+                day = weekDaysAbbr[i];
+            }
+        }
+
+        TextView todayDay;
+        if(day.equals("Mon")){
+            todayDay = monTxt;
+        }else if(day.equals("Tue")){
+            todayDay = tueTxt;
+        }else if(day.equals("Wed")){
+            todayDay = wedTxt;
+        }else if(day.equals("Thu")){
+            todayDay = thursTxt;
+        }else if(day.equals("Fri")){
+            todayDay = friTxt;
+        }else if(day.equals("Sat")){
+            todayDay = satTxt;
+        }else{
+            todayDay = sunTxt;
+        }
+        todayDay.setTextColor(getResources().getColor(R.color.red_pink));
+
+
 
         for (int i = 0; i < 7; i++) {
             weekDays.add(new ArrayList<>());
