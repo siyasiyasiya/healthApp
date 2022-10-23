@@ -229,6 +229,7 @@ public class GetUserPreferences extends AppCompatActivity{
 
         if(check) {
             saveData(view);
+            saveDataWeight(view);
             loadData(view);
             Intent intent = new Intent(GetUserPreferences.this, HomePage.class);
             startActivity(intent);
@@ -415,6 +416,44 @@ public class GetUserPreferences extends AppCompatActivity{
         }
     }
 
+    public void saveDataWeight(View v) {
+        File path = getApplicationContext().getFilesDir();
+        java.util.Date ogDate = new java.util.Date();
+        String[] months = {"Jan", "Feb", "Mar", "Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        String date = ogDate.toString().substring(0, 10);
+        int monthIndex =0;
+        for(int i = 0; i < months.length; i++){
+            if(date.contains(months[i])){
+                monthIndex = i;
+            }
+        }
+        try {
+            FileOutputStream writer = new FileOutputStream(new File(path, "userDataWeight.txt"));
+            OutputStreamWriter osr = new OutputStreamWriter(writer);
+            BufferedWriter br = new BufferedWriter(osr);
+            if(monthIndex!=11) {
+                for (int i = monthIndex + 1; i < months.length; i++) {
+                    br.append(months[i]);
+                    br.newLine();
+                    br.append(String.valueOf(weight+1));
+                    br.newLine();
+                }
+            }
+            for (int i= 0; i<monthIndex+1; i++) {
+                br.append(months[i]);
+                br.newLine();
+                br.append(String.valueOf(weight));
+                br.newLine();
+            }
+
+            br.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 //    how to load data example
     public void loadData(View v){
         FileInputStream fis = null;
@@ -429,7 +468,6 @@ public class GetUserPreferences extends AppCompatActivity{
                 sb.append(text).append("\n");
             }
 
-//            Toast.makeText(this, sb.toString(), Toast.LENGTH_SHORT).show();
         }catch(FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e) {

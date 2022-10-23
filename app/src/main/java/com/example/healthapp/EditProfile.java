@@ -43,6 +43,8 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
 
     private static final String[] workoutTypes = {"cardio", "plyometrics", "strength", "powerlifting", "flexibility", "weightlifting"};
 
+    private static final String[] months = {"Jan", "Feb", "Mar", "Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+
     Spinner goalSelection;
 
     EditText nameTxt,monthTxt,dayTxt,yearTtx,feetTxt,inchTxt,weightTxt;
@@ -51,6 +53,9 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
     LinearLayout topLayerMon,topLayerTues,topLayerWed,topLayerThurs,topLayerFri,topLayerSat,topLayerSun, bottomLayer;
 
     TextView dragLeg,dragChoice,dragArms,dragBack,dragChest,dragRest,dragSho,dragAbbs;
+
+    ArrayList<Integer> weights = new ArrayList<>();
+    ArrayList<String> monthsWeights = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +83,8 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
         goalSelection.setOnItemSelectedListener(this);
 
         loadChanges();
+
+        loadDataWeight();
 
         workoutPrefsErr = findViewById(R.id.workoutPrefsErr2);
 
@@ -431,7 +438,6 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
             } catch (IOException e) {
                 e.printStackTrace();
             }
-//            Toast.makeText(this, txt, Toast.LENGTH_SHORT).show();
             if (txt==null || txt.equals(weekDay)){
                 day = false;
             }else {
@@ -521,6 +527,22 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
         if(works){
             save(v);
         }
+
+        java.util.Date ogDate = new java.util.Date();
+        String date = ogDate.toString().substring(0, 10);
+        String monthForWeight = "";
+        for(int i = 0; i < months.length; i++){
+            if(date.contains(months[i])){
+                monthForWeight = months[i];
+            }
+        }
+        if(monthsWeights.get(monthsWeights.size()-1).equals(monthForWeight)){
+            weights.set(weights.size()-1, weight);
+        }else{
+            weights.remove(0);
+            weights.add(weight);
+        }
+        saveDataWeight(v);
     }
 
     public void save (View v){
@@ -590,5 +612,53 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void saveDataWeight(View v) {
+        File path = getApplicationContext().getFilesDir();
+        try {
+            FileOutputStream writer = new FileOutputStream(new File(path, "userDataWeight.txt"));
+            OutputStreamWriter osr = new OutputStreamWriter(writer);
+            BufferedWriter br = new BufferedWriter(osr);
+            for (int i= 0; i<12; i++) {
+                br.append(monthsWeights.get(i));
+                br.newLine();
+                br.append(String.valueOf(weights.get(i)));
+                br.newLine();
+            }
+            br.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadDataWeight(){
+        FileInputStream fis = null;
+        try{
+            fis = openFileInput("userDataWeight.txt");
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+//            StringBuilder sb = new StringBuilder();
+//            String text;
+            for (int i = 0; i < 12; i++) {
+                monthsWeights.add(br.readLine());
+                weights.add(Integer.valueOf(br.readLine()));
+            }
+
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if(fis!=null){
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

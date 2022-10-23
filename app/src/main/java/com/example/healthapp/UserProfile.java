@@ -10,8 +10,15 @@ import android.graphics.fonts.Font;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -19,8 +26,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class UserProfile extends AppCompatActivity {
+public class UserProfile extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
     String name = "";
     String gender = "";
     int month = 0;
@@ -33,6 +41,13 @@ public class UserProfile extends AppCompatActivity {
     ArrayList<ArrayList<String>> weekDays = new ArrayList<>();
     String[] weekDaysAbbr = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
+    private static final String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    ArrayList<Integer> weights = new ArrayList<>();
+    Spinner daySelector;
+    TextView todayMuscle;
+
+    GraphView weightLog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,26 +58,21 @@ public class UserProfile extends AppCompatActivity {
         TextView birthdayView = findViewById(R.id.birthdayView);
         TextView heightView = findViewById(R.id.heightView);
         TextView weightView = findViewById(R.id.weightView);
+        todayMuscle = findViewById(R.id.todayMuscle);
 
         TextView fitnessGoalLbl = findViewById(R.id.fitnessGoalLbl);
 
-        TextView mondayGoal = findViewById(R.id.mondayGoal);
-        TextView tuesdayGoal = findViewById(R.id.tuesdayGoal);
-        TextView wednesdayGoal = findViewById(R.id.wednesdayGoal);
-        TextView thursdayGoal = findViewById(R.id.thurdayGoal);
-        TextView fridayGoal = findViewById(R.id.fridayGoal);
-        TextView saturdayGoal = findViewById(R.id.saturdayGoal);
-        TextView sundayGoal = findViewById(R.id.sundayGoal);
+        daySelector = (Spinner)findViewById(R.id.daySpinners);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(UserProfile.this,
+                android.R.layout.simple_spinner_item, days);
 
-        TextView monTxt = findViewById(R.id.monTxt);
-        TextView tueTxt = findViewById(R.id.tuesTxt);
-        TextView wedTxt = findViewById(R.id.wedTxt);
-        TextView thursTxt = findViewById(R.id.thursTxt);
-        TextView friTxt = findViewById(R.id.friTxt);
-        TextView satTxt = findViewById(R.id.satTxt);
-        TextView sunTxt = findViewById(R.id.sunTxt);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        daySelector.setAdapter(adapter);
+        daySelector.setOnItemSelectedListener(this);
 
-        //Bolds today's day
+        weightLog = findViewById(R.id.weightLog);
+
+
         java.util.Date ogDate = new java.util.Date();
         String date = ogDate.toString().substring(0, 10);
         String day = "";
@@ -72,25 +82,21 @@ public class UserProfile extends AppCompatActivity {
             }
         }
 
-        TextView todayDay;
         if(day.equals("Mon")){
-            todayDay = monTxt;
-        }else if(day.equals("Tue")){
-            todayDay = tueTxt;
-        }else if(day.equals("Wed")){
-            todayDay = wedTxt;
-        }else if(day.equals("Thu")){
-            todayDay = thursTxt;
-        }else if(day.equals("Fri")){
-            todayDay = friTxt;
-        }else if(day.equals("Sat")){
-            todayDay = satTxt;
+            daySelector.setSelection(0);
+        }else if(day.equals("Tue")) {
+            daySelector.setSelection(1);
+        }else if(day.equals("Wed")) {
+            daySelector.setSelection(2);
+        }else if(day.equals("Thu")) {
+            daySelector.setSelection(3);
+        }else if(day.equals("Fri")) {
+            daySelector.setSelection(4);
+        }else if(day.equals("Sat")) {
+            daySelector.setSelection(5);
         }else{
-            todayDay = sunTxt;
+            daySelector.setSelection(6);
         }
-        todayDay.setTextColor(getResources().getColor(R.color.red_pink));
-
-
 
         for (int i = 0; i < 7; i++) {
             weekDays.add(new ArrayList<>());
@@ -106,14 +112,6 @@ public class UserProfile extends AppCompatActivity {
 
         loadData();
 
-        mondayGoal.setText(displayDailyGoal(0));
-        tuesdayGoal.setText(displayDailyGoal(1));
-        wednesdayGoal.setText(displayDailyGoal(2));
-        thursdayGoal.setText(displayDailyGoal(3));
-        fridayGoal.setText(displayDailyGoal(4));
-        saturdayGoal.setText(displayDailyGoal(5));
-        sundayGoal.setText(displayDailyGoal(6));
-
         nameLbl.setText("Hi " + name +"!");
         genderView.setText(gender);
         birthdayView.setText(month +"/"+day+"/"+year);
@@ -121,6 +119,31 @@ public class UserProfile extends AppCompatActivity {
         weightView.setText(weight+ " lbs");
         fitnessGoalLbl.setText(fitnessGoal);
 
+        loadDataWeight();
+
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+                // on below line we are adding
+                // each point on our x and y axis.
+                new DataPoint(1, weights.get(0)),
+                new DataPoint(2, weights.get(1)),
+                new DataPoint(3, weights.get(2)),
+                new DataPoint(4, weights.get(3)),
+                new DataPoint(5, weights.get(4)),
+                new DataPoint(6, weights.get(5)),
+                new DataPoint(7, weights.get(6)),
+                new DataPoint(8, weights.get(7)),
+                new DataPoint(9, weights.get(8)),
+                new DataPoint(10, weights.get(9)),
+                new DataPoint(11, weights.get(10)),
+                new DataPoint(12, weights.get(11)),
+        });
+
+        weightLog.setTitle("12 Month Weight Log");
+        weightLog.setTitleTextSize(25);
+        series.setColor(Color.parseColor("#FFFF0057"));
+        weightLog.addSeries(series);
+        weightLog.getViewport().setYAxisBoundsManual(false);
+        weightLog.getViewport().setXAxisBoundsManual(true);
     }
 
     public String displayDailyGoal(int index){
@@ -189,6 +212,33 @@ public class UserProfile extends AppCompatActivity {
         }
     }
 
+    public void loadDataWeight(){
+        FileInputStream fis = null;
+        try{
+            fis = openFileInput("userDataWeight.txt");
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+//            StringBuilder sb = new StringBuilder();
+//            String text;
+            for (int i = 0; i < 12; i++) {
+                br.readLine();
+                weights.add(Integer.valueOf(br.readLine()));
+            }
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if(fis!=null){
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 //    get each day's workout from txt file
     public void checkDayWorkout(int indexAdd, String weekDay, BufferedReader br){
         boolean day = true;
@@ -199,7 +249,6 @@ public class UserProfile extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-//            Toast.makeText(this, txt, Toast.LENGTH_SHORT).show();
             if (txt==null || txt.equals(weekDay)){
                 day = false;
             }else {
@@ -220,5 +269,37 @@ public class UserProfile extends AppCompatActivity {
     @Override
     public boolean deleteFile(String name) {
         return super.deleteFile(name);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (position) {
+            case 0:
+                todayMuscle.setText(displayDailyGoal(0));
+                break;
+            case 1:
+                todayMuscle.setText(displayDailyGoal(1));
+                break;
+            case 2:
+                todayMuscle.setText(displayDailyGoal(2));
+                break;
+            case 3:
+                todayMuscle.setText(displayDailyGoal(3));
+                break;
+            case 4:
+                todayMuscle.setText(displayDailyGoal(4));
+                break;
+            case 5:
+                todayMuscle.setText(displayDailyGoal(5));
+                break;
+            case 6:
+                todayMuscle.setText(displayDailyGoal(6));
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
